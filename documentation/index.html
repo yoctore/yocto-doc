@@ -1,75 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Index</title>
+<html lang="en">
     
+    <head>
+        <meta charset="utf-8">
+        <title>Yoctodoc plugin Index</title>
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link type="text/css" rel="stylesheet" href="styles/sunlight.dark.css">
+        <link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+        <link type="text/css" rel="stylesheet" href="styles/yoctostyle.css">
+    </head>
     
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <script src="scripts/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
-    
-    
-    <script>
-    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"Yoctodoc plugin","linenums":true,"default":{}};
-    </script>
-    
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">	<a class="navbar-brand" href="index.html">Yoctodoc plugin</a>
 
-    
-</head>
-<body>
-<div id="wrap" class="clearfix">
-    
-<div class="navigation">
-    <h3 class="applicationName"><a href="index.html">Yoctodoc plugin</a></h3>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">	<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 
-    <div class="search">
-        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
-    </div>
-    <ul class="list">
-    
-    </ul>
-</div>
-    <div class="main">
-        <h1 class="page-title" data-filename="index.html">Index</h1>
-        
+                            <ul
+                            class="dropdown-menu ">
+                                <li><a href="Logger.html">Logger</a>
+                                </li>
+                    </ul>
+                    </li>
+                    <li class="dropdown">	<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article class="readme"><h1>yocto-doc</h1><blockquote>
-<p>Generate documention for source. Build from jsDoc &amp; jaguarjs tools</p>
-</blockquote>
-<h2>How to use</h2><blockquote>
-<p>In your project install our plugin</p>
-</blockquote>
+                        <ul
+                        class="dropdown-menu ">
+                            <li><a href="global.html#banner">banner</a>
+                            </li>
+                            <li><a href="global.html#changeLevel">changeLevel</a>
+                            </li>
+                            <li><a href="global.html#dailyRotateFileTransportFormatter">dailyRotateFileTransportFormatter</a>
+                            </li>
+                            <li><a href="global.html#debug">debug</a>
+                            </li>
+                            <li><a href="global.html#error">error</a>
+                            </li>
+                            <li><a href="global.html#info">info</a>
+                            </li>
+                            <li><a href="global.html#less">less</a>
+                            </li>
+                            <li><a href="global.html#more">more</a>
+                            </li>
+                            <li><a href="global.html#process">process</a>
+                            </li>
+                            <li><a href="global.html#verbose">verbose</a>
+                            </li>
+                            <li><a href="global.html#warning">warning</a>
+                            </li>
+                            </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="main">
+                        	<h1 class="page-title">Index</h1>
+	<span class="page-title">Index</span>
+                        <section class="readme-section">
+                            <article>
+                                <h1>yocto-doc</h1>
+                                <blockquote>
+                                    <p>Generate documention for source. Build from jsDoc &amp; jaguarjs tools</p>
+                                </blockquote>
+                                
+<h2>How to use</h2>
+                                <blockquote>
+                                    <p>In your project install our plugin</p>
+                                </blockquote>
 <pre class="prettyprint source lang-shell"><code># If you install from npm registry
 npm install yocto-doc --save-dev</code></pre><pre class="prettyprint source lang-shell"><code># If your install from yocto lab. Add this line on your package.json
 {
     &quot;yoctohint&quot; : &quot;git+ssh://git@lab.yocto.digital:yocto-node-modules/yocto-doc.git&quot;
-}</code></pre><h3>Overview &amp; Options</h3><p>In your project's Gruntfile, add a section named <code>yoctodoc</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+}</code></pre>
+                                <h3>Overview &amp; Options</h3>
+                                <p>In your project's Gruntfile, add a section named <code>yoctodoc</code> to
+                                    the data object passed into <code>grunt.initConfig()</code>.</p>
 <pre class="prettyprint source lang-js"><code>grunt.initConfig({
   yoctodoc : {
       options : {
@@ -86,26 +101,126 @@ npm install yocto-doc --save-dev</code></pre><pre class="prettyprint source lang
 // load task
 grunt.loadNpmTasks('yoctodoc');
 // register task
-grunt.registerTask('doc', 'yoctodoc');</code></pre><p>Run IT </p>
+grunt.registerTask('doc', 'yoctodoc');</code></pre>
+                                <p>Run IT</p>
 <pre class="prettyprint source lang-shell"><code>grunt doc
 
-// Data will output on documentation directory on your current project path</code></pre></article>
-    </section>
+// Data will output on documentation directory on your current project path</code></pre>
+                            </article>
+                        </section>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-3">
+                    <div id="toc" class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+        <footer>	<span class="copyright">
+	Copyright © 2014. Yocto SAS. All rights reserved. http://www.yocto.re
+	</span>
 
+            <br />
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>
+	on 14/08/15 23:28:12 using the <a
+	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+</span>
 
-
-
-
-
-        
-
-        <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Fri Aug 14 2015 19:50:24 GMT+0400 (RET)
         </footer>
-    </div>
-</div>
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-<script src="scripts/main.js"></script>
-</body>
+        <!--<script src="scripts/sunlight.js"></script>-->
+        <script src="scripts/docstrap.lib.js"></script>
+        <script src="scripts/bootstrap-dropdown.js"></script>
+        <script src="scripts/toc.js"></script>
+        <script>
+            $( function () {
+            	$( "[id*='$']" ).each( function () {
+            		var $this = $( this );
+            
+            		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+            	} );
+            
+            	$( "#toc" ).toc( {
+            		anchorName  : function ( i, heading, prefix ) {
+            			return $( heading ).attr( "id" ) || ( prefix + i );
+            		},
+            		selectors   : "h1,h2,h3,h4",
+            		showAndHide : false,
+            		scrollTo    : "100px"
+            	} );
+            
+            	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+            	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+            	$( '.dropdown-toggle' ).dropdown();
+            	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+            
+            	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+            		var $this = $( this );
+            
+            		var example = $this.find( "code" );
+            		exampleText = example.html();
+            		var lang = /{@lang (.*?)}/.exec( exampleText );
+            		if ( lang && lang[1] ) {
+            			exampleText = exampleText.replace( lang[0], "" );
+            			example.html( exampleText );
+            			lang = lang[1];
+            		} else {
+            			lang = "javascript";
+            		}
+            
+            		if ( lang ) {
+            
+            			$this
+            			.addClass( "sunlight-highlight-" + lang )
+            			.addClass( "linenums" )
+            			.html( example.html() );
+            
+            		}
+            	} );
+            
+            	Sunlight.highlightAll( {
+            		lineNumbers : true,
+            		showMenu : true,
+            		enableDoclinks : true
+            	} );
+            } );
+        </script>
+        <!--Navigation and Symbol Display-->
+        <script>
+            $( function () {
+            		$( '#main' ).localScroll( {
+            			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+            		} );
+            		$( "dt.name" ).each( function () {
+            			var $this = $( this ).find("h4");
+            			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+            			var dt = $(this);
+            			var children = dt.next( "dd" );
+            
+            			dt.prepend( icon ).css( {cursor : "pointer"} );
+            			dt.addClass( "member-collapsed" ).addClass( "member" );
+            
+            
+            			children.hide();
+            
+            			dt.children().on( "click", function () {
+            				children = dt.next( "dd" );
+            				children.slideToggle( "fast", function () {
+            
+            					if ( children.is( ":visible" ) ) {
+            						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+            						dt.addClass( "member-open" ).animate( "member-collapsed" );
+            					} else {
+            						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+            						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+            					}
+            				} );
+            			} );
+            
+            		} );
+            	} );
+        </script>
+        <!--Google Analytics-->
+    </body>
+
 </html>

@@ -10,10 +10,21 @@
     "plugins/markdown"
   ],
   "templates": {
-    "applicationName": "Yoctodoc plugin",
+    "pageTitle": "",
+    "systemName": "Yoctodoc plugin",
+    "footer": "",
+    "copyright": "Copyright © 2014. Yocto SAS. All rights reserved. http://www.yocto.re",
+    "navType": "vertical",
+    "theme": "cosmo",
     "linenums": true,
-    "cleverLinks": false,
-    "monospaceLinks": false
+    "collapseSymbols": true,
+    "inverseNav": true,
+    "outputSourceFiles": false,
+    "outputSourcePath": false,
+    "dateFormat": "DD/MM/GG HH:mm:ss",
+    "highlightTutorialCode": true,
+    "syntaxTheme": "dark",
+    "applicationName": "Yoctodoc plugin"
   },
   "markdown": {
     "parser": "gfm",

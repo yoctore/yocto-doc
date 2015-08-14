@@ -17,7 +17,7 @@ module.exports = function (grunt) {
       options : {
         name        : 'Yoctodoc plugin',
       },
-      all     : [ 'tasks/yoctodoc.js' ]
+      all     : [ 'test/index-test.js' ]
     }
   });
 
