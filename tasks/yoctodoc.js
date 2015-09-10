@@ -96,14 +96,20 @@ module.exports = function (grunt) {
           // Add yocto style in fo file
           grunt.log.ok('Move & Link yoctostyle.css into index.html');
 
-          // needed property
-          var htmlIndexPath = [ process.cwd(), 'documentation', 'index.html' ].join('/');
+          var htmlf = glob.sync([
+            grunt.config.data.jsdoc.dist.options.destination,
+            '*.html'
+          ].join('/'));
+          
+          _.each(htmlf, function(h) {  
+            // get current html
+            var html          = grunt.file.read(h);
 
-          // get current html
-          var html          = grunt.file.read(htmlIndexPath);
-
-          // replace html content to add our style
-          html = html.replace(/<\/head>/gm, cssToInclude);
+            // replace html content to add our style
+            html = html.replace(/<\/head>/gm, cssToInclude);
+            // saving new template content
+            grunt.file.write(h, beautify.prettyPrint(html,  { indexSize : 2 }));
+          })
 
           // copy custom style on doc style directory
           grunt.file.copy(
@@ -111,9 +117,6 @@ module.exports = function (grunt) {
             [ grunt.config.data.jsdoc.dist.options.destination,
             'styles/yoctostyle.css' ].join('/')
           );
-
-          // saving new template content
-          grunt.file.write(htmlIndexPath, beautify.prettyPrint(html,  { indexSize : 2 }));
 
           // removing no needed file
           var unused = glob.sync([

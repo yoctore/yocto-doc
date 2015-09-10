@@ -1,6 +1,7 @@
 /**
  * @author Mathieu ROBERT <mathieu@yocto.re>
  * @copyright Yocto SAS, All right reserved <http://www.yocto.re>
+ * @module yocto-node-modules/Logger
  */
 'use strict';
 

@@ -18,7 +18,7 @@
     "theme": "cosmo",
     "linenums": true,
     "collapseSymbols": true,
-    "inverseNav": true,
+    "inverseNav": false,
     "outputSourceFiles": false,
     "outputSourcePath": false,
     "dateFormat": "DD/MM/GG HH:mm:ss",
