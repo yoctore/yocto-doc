@@ -31,9 +31,7 @@ module.exports = function (grunt) {
           template    : [
             process.cwd(),
             'node_modules',
-            'grunt-jsdoc',
-            'node_modules',
-            'ink-docstrap',
+            'jsdoc-oblivion',
             'template'
           ].join('/'),
           readme      : [ process.cwd(), 'README.md' ].join('/')

@@ -1,3 +1,7 @@
+![alt text](https://david-dm.org/yoctore/yocto-doc.svg "Dependencies Status")
+
+[ THIS PACKAGE IS IN DEVELOPMENT ]
+
 # yocto-doc
 
 

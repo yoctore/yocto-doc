@@ -3,61 +3,62 @@
     
     <head>
         <meta charset="utf-8">
-        <title>Yoctodoc plugin Class: Logger</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes, width=device-width">
+        <title>Oblivion — Class: Logger</title>
+        <link rel="shortcut icon" href="/favicon.ico">
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link type="text/css" rel="stylesheet" href="styles/sunlight.dark.css">
-        <link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+        <link type="text/css" rel="stylesheet" href="styles/site.oblivion.css">
         <link type="text/css" rel="stylesheet" href="styles/yoctostyle.css">
     </head>
     
     <body>
-        <div class="navbar navbar-default navbar-fixed-top ">
-            <div class="container">
-                <div class="navbar-header">	<a class="navbar-brand" href="index.html">Yoctodoc plugin</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner"> <a class="brand" href="index.html">Oblivion</a>
 
-                </div>
-                <div class="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">	<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+                    <ul class="nav">
+                        <li class="dropdown"> <a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
+            class="caret"></b></a>
 
-                            <ul
-                            class="dropdown-menu ">
-                                <li><a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a>
+                            <ul class="dropdown-menu ">
+                                <li> <a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a>
+
                                 </li>
-                    </ul>
-                    </li>
-                    <li class="dropdown">	<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-
-                        <ul
-                        class="dropdown-menu ">
-                            <li><a href="module-yocto-node-modules_Logger-Logger.html">yocto-node-modules/Logger~Logger</a>
-                            </li>
                             </ul>
-                    </li>
+                        </li>
+                        <li class="dropdown"> <a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+            class="caret"></b></a>
+
+                            <ul class="dropdown-menu ">
+                                <li> <a href="module-yocto-node-modules_Logger-Logger.html">yocto-node-modules/Logger~Logger</a>
+
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+            <div class="row-fluid">
+                <div class="span3">
+                    <div id="toc"></div>
+                </div>
+                <div class="span9">
                     <div id="main">
-                        	<h1 class="page-title">Class: Logger</h1>
-
                         	<h1 class="page-title">Class: Logger</h1>
                         <section>
                             <header>
                                  <h2>
 
-            <span class="ancestors"><a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a>~</span>
+        <span class="ancestors"><a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a>~</span>
 
-        
+    
 
-        Logger
+    Logger
 
-        </h2>
+    </h2>
                             </header>
                             <article>
                                 <div class="container-overview">
@@ -71,9 +72,7 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Yocto logger manager. Manage your own logger request</p>
-                                        </div>
+                                        <div class="description">Yocto logger manager. Manage your own logger request</div>
                                         <dl class="details"></dl>
                                     </dd>
                                 </div>
@@ -90,7 +89,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -107,13 +106,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define debug log level rules on current class</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define debug log level rules on current class</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{ name : 'debug', level : 5, fn : 'debug' }</li>
@@ -132,7 +129,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -149,13 +146,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default console transport configuration</p>
-                                                            </td>
+                                                            <td class="description last">Default console transport configuration</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{"level":"debug","handleExceptions":false,"json":false,"showLevel":true,"silent":false,"label":"","formatter":"","timestamp":null,"colorize":""}</li>
@@ -173,9 +168,7 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default daily rotate transport file</p>
-                                        </div>
+                                        <div class="description">Default daily rotate transport file</div>
                                          <h5>Type:</h5>
                                         <ul>
                                             <li>
@@ -183,7 +176,7 @@
                                             </li>
                                         </ul>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -216,7 +209,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -233,13 +226,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define error log level rules on current class</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define error log level rules on current class</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{ name : 'error', level : 1, fn : 'error' }</li>
@@ -258,7 +249,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -275,13 +266,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define info log level rules on current class</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define info log level rules on current class</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{ name : 'info', level : 3, fn : 'info' }</li>
@@ -300,7 +289,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -317,13 +306,11 @@
                                                             <td class="type">
 <span class="param-type">Integer</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default log level</p>
-                                                            </td>
+                                                            <td class="description last">Default log level</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>5</li>
@@ -342,7 +329,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -359,18 +346,16 @@
                                                             <td class="type">
 <span class="param-type">String</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define console type</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define console type</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>console</li>
                                                 </ul>
-                                            </dd>	<dt class="tag-see">See:</dt>
+                                            </dd> <dt class="tag-see">See:</dt>
                                             <dd class="tag-see">
                                                 <ul>
                                                     <li><a href="https://www.npmjs.com/package/winston#console-transport">https://www.npmjs.com/package/winston#console-transport</a>
@@ -390,7 +375,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -407,18 +392,16 @@
                                                             <td class="type">
 <span class="param-type">String</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define daily rotate file</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define daily rotate file</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>daily-rotate-file</li>
                                                 </ul>
-                                            </dd>	<dt class="tag-see">See:</dt>
+                                            </dd> <dt class="tag-see">See:</dt>
                                             <dd class="tag-see">
                                                 <ul>
                                                     <li><a href="https://www.npmjs.com/package/winston#daily-rotate-file-transport">https://www.npmjs.com/package/winston#daily-rotate-file-transport</a>
@@ -438,7 +421,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -455,13 +438,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define verbose log level rules on current class</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define verbose log level rules on current class</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{ name : 'verbose', level : 4, fn : 'verbose' }</li>
@@ -480,7 +461,7 @@
 </dt>
                                     <dd>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -497,13 +478,11 @@
                                                             <td class="type">
 <span class="param-type">Object</span>
                                                             </td>
-                                                            <td class="description last">
-                                                                <p>Default const to define warning log level rules on current class</p>
-                                                            </td>
+                                                            <td class="description last">Default const to define warning log level rules on current class</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </dl>	<dt class="tag-default">Default Value:</dt>
+                                            </dl> <dt class="tag-default">Default Value:</dt>
                                             <dd class="tag-default">
                                                 <ul class="dummy">
                                                     <li>{ name : 'warning', level : 2, fn : 'warn' }</li>
@@ -521,9 +500,7 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default winston instance logger</p>
-                                        </div>
+                                        <div class="description">Default winston instance logger</div>
                                          <h5>Type:</h5>
                                         <ul>
                                             <li>
@@ -531,7 +508,7 @@
                                             </li>
                                         </ul>
                                         <dl class="details">
-                                            	<h5 class="subsection-title">Properties:</h5>
+                                             <h5 class="subsection-title">Properties:</h5>
                                             <dl>
                                                 <table class="props table table-striped">
                                                     <thead>
@@ -566,51 +543,45 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Adding transport on logger module</p>
-                                        </div>
+                                        <div class="description">Adding transport on logger module</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>fullpath</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>fullpath</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">String</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>path to use</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name"><code>filename</code>
-                                                    </td>
-                                                    <td class="type">
+                                                        </td>
+                                                        <td class="description last">path to use</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name"><code>filename</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">String</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>filename to use</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name"><code>options</code>
-                                                    </td>
-                                                    <td class="type">
+                                                        </td>
+                                                        <td class="description last">filename to use</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name"><code>options</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Object</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>override options value on daily rotate</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">override options value on daily rotate</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                     </dd>
 <dt>
@@ -623,42 +594,38 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default console formatter. use all data to render the correct message
-                                                format to the logger formatter</p>
-                                        </div>
+                                        <div class="description">Default console formatter. use all data to render the correct message
+                                            format to the logger formatter</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>options</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>options</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Object</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>default options to use</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">default options to use</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>the correct string to use on current transporter</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">the correct string to use on current transporter</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">String</span>
                                             </dd>
@@ -674,9 +641,7 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Wrapper function to disable log on console</p>
-                                        </div>
+                                        <div class="description">Wrapper function to disable log on console</div>
                                         <dl class="details"></dl>
                                     </dd>
 <dt>
@@ -689,9 +654,7 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Wrapper function to disable exception on transport</p>
-                                        </div>
+                                        <div class="description">Wrapper function to disable exception on transport</div>
                                         <dl class="details"></dl>
                                     </dd>
 <dt>
@@ -704,31 +667,29 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Wrapper function to enable log on console</p>
-                                        </div>
+                                        <div class="description">Wrapper function to enable log on console</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>status</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>status</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Boolean</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>true if we need to enable false otherwise</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">true if we need to enable false otherwise</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                     </dd>
 <dt>
@@ -741,31 +702,29 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Wrapper function to enable exceptions on transport</p>
-                                        </div>
+                                        <div class="description">Wrapper function to enable exceptions on transport</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>status</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>status</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Boolean</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>true if we need to enable false otherwise</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">true if we need to enable false otherwise</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                     </dd>
 <dt>
@@ -778,41 +737,37 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Success function for emit event. catch all failure for call process</p>
-                                        </div>
+                                        <div class="description">Success function for emit event. catch all failure for call process</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>callback</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>callback</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">function</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>callback to use failure event</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">callback to use failure event</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>current instance</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">current instance</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">Object</span>
                                             </dd>
@@ -828,41 +783,37 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Success function for emit event. catch all success for call process</p>
-                                        </div>
+                                        <div class="description">Success function for emit event. catch all success for call process</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>callback</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>callback</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">function</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>callback to use success event</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">callback to use success event</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>current instance</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">current instance</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">Object</span>
                                             </dd>
@@ -878,41 +829,37 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default function to colorize the log level with chalk</p>
-                                        </div>
+                                        <div class="description">Default function to colorize the log level with chalk</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>level</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>level</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">String</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>current level to use</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">current level to use</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>current color to use on chalk</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">current color to use on chalk</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">String</span>
                                             </dd>
@@ -928,41 +875,37 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default label function to retrive the correct label to display on logger</p>
-                                        </div>
+                                        <div class="description">Default label function to retrive the correct label to display on logger</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>value</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>value</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">String</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>value to check</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">value to check</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>the correct value to display</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">the correct value to display</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">String</span>
                                             </dd>
@@ -978,19 +921,15 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default function to get a current date format</p>
-                                        </div>
+                                        <div class="description">Default function to get a current date format</div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>formated string based on moment.js format</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">formated string based on moment.js format</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">String</span>
                                             </dd>
@@ -1006,52 +945,46 @@
 
 </dt>
                                     <dd>
-                                        <div class="description">
-                                            <p>Default formatter. use all data to render the correct message format to
-                                                the logger formatter</p>
-                                        </div>
+                                        <div class="description">Default formatter. use all data to render the correct message format to
+                                            the logger formatter</div>
                                          <h5>Parameters:</h5>
-                                        <table class="params table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th class="last">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="name"><code>options</code>
-                                                    </td>
-                                                    <td class="type">
+                                        <div class="params-table-container">
+                                            <table class="params table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Type</th>
+                                                        <th class="last">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="name"><code>options</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Object</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>default options to use</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name"><code>colorize</code>
-                                                    </td>
-                                                    <td class="type">
+                                                        </td>
+                                                        <td class="description last">default options to use</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name"><code>colorize</code>
+                                                        </td>
+                                                        <td class="type">
 <span class="param-type">Boolean</span>
-                                                    </td>
-                                                    <td class="description last">
-                                                        <p>if true enable colorize process, false otherwise</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="description last">if true enable colorize process, false otherwise</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <dl class="details"></dl>
                                          <h5>Returns:</h5>
-                                        <div class="param-desc">
-                                            <p>the correct string to use on current transporter</p>
-                                        </div>
-                                        <dl>	<dt>
+                                        <div class="param-desc">the correct string to use on current transporter</div>
+                                        <dl> <dt>
 
-		Type
+    Type
 
-	</dt>
+  </dt>
                                             <dd>
 <span class="param-type">String</span>
                                             </dd>
@@ -1061,117 +994,79 @@
                             </article>
                         </section>
                     </div>
+                    <div class="clearfix"></div>
+                    <footer> <span class="copyright">
+    Copyright © 2014
+    </span>
+
+                        <br /> <span class="jsdoc-message">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.3.2</a>
+    on 2015-09-12T01:53:40+04:00
+    </span>
+
+                    </footer>
                 </div>
-                <div class="clearfix"></div>
-                <div class="col-md-3">
-                    <div id="toc" class="col-md-3"></div>
-                </div>
+                <br clear="both">
             </div>
         </div>
-        <footer>	<span class="copyright">
-	Copyright © 2014. Yocto SAS. All rights reserved. http://www.yocto.re
-	</span>
-
-            <br />
-<span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>
-	on 17/08/15 00:11:12 using the <a
-	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
-</span>
-
-        </footer>
         <!--<script src="scripts/sunlight.js"></script>-->
         <script src="scripts/docstrap.lib.js"></script>
         <script src="scripts/bootstrap-dropdown.js"></script>
         <script src="scripts/toc.js"></script>
         <script>
             $( function () {
-            	$( "[id*='$']" ).each( function () {
-            		var $this = $( this );
-            
-            		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
-            	} );
-            
-            	$( "#toc" ).toc( {
-            		anchorName  : function ( i, heading, prefix ) {
-            			return $( heading ).attr( "id" ) || ( prefix + i );
-            		},
-            		selectors   : "h1,h2,h3,h4",
-            		showAndHide : false,
-            		scrollTo    : "100px"
-            	} );
-            
-            	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-            	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
-            	$( '.dropdown-toggle' ).dropdown();
-            	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
-            
-            	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
-            		var $this = $( this );
-            
-            		var example = $this.find( "code" );
-            		exampleText = example.html();
-            		var lang = /{@lang (.*?)}/.exec( exampleText );
-            		if ( lang && lang[1] ) {
-            			exampleText = exampleText.replace( lang[0], "" );
-            			example.html( exampleText );
-            			lang = lang[1];
-            		} else {
-            			lang = "javascript";
-            		}
-            
-            		if ( lang ) {
-            
-            			$this
-            			.addClass( "sunlight-highlight-" + lang )
-            			.addClass( "linenums" )
-            			.html( example.html() );
-            
-            		}
-            	} );
-            
-            	Sunlight.highlightAll( {
-            		lineNumbers : true,
-            		showMenu : true,
-            		enableDoclinks : true
-            	} );
+              $( "[id*='$']" ).each( function () {
+                var $this = $( this );
+        
+                $this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+              } );
+        
+              $( "#toc" ).toc( {
+                anchorName  : function ( i, heading, prefix ) {
+                  return $( heading ).attr( "id" ) || ( prefix + i );
+                },
+                selectors   : "h1,h2,h3,h4",
+                showAndHide : false,
+                scrollTo    : "100px"
+              } );
+        
+              $( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+              $( "#main span[id^='toc']" ).addClass( "toc-shim" );
+              $( '.dropdown-toggle' ).dropdown();
+        //      $( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+        
+              $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                  exampleText = exampleText.replace( lang[0], "" );
+                  example.html( exampleText );
+                  lang = lang[1];
+                } else {
+                  lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                  $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+              } );
+        
+              Sunlight.highlightAll( {
+                lineNumbers : true,
+                showMenu : true,
+                enableDoclinks : true
+              } );
             } );
         </script>
         <!--Navigation and Symbol Display-->
-        <script>
-            $( function () {
-            		$( '#main' ).localScroll( {
-            			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
-            		} );
-            		$( "dt.name" ).each( function () {
-            			var $this = $( this ).find("h4");
-            			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
-            			var dt = $(this);
-            			var children = dt.next( "dd" );
-            
-            			dt.prepend( icon ).css( {cursor : "pointer"} );
-            			dt.addClass( "member-collapsed" ).addClass( "member" );
-            
-            
-            			children.hide();
-            
-            			dt.children().on( "click", function () {
-            				children = dt.next( "dd" );
-            				children.slideToggle( "fast", function () {
-            
-            					if ( children.is( ":visible" ) ) {
-            						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
-            						dt.addClass( "member-open" ).animate( "member-collapsed" );
-            					} else {
-            						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
-            						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
-            					}
-            				} );
-            			} );
-            
-            		} );
-            	} );
-        </script>
         <!--Google Analytics-->
     </body>
 

@@ -1,11 +1,16 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 
 html,
 body {
-  font:400 16px/24px Roboto,sans-serif
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
   font-weight: 100;
 }
 
+
+.container {
+  width: 100%;
+}
 
 .container span.page-title,
 .jsdoc-message {
@@ -15,23 +20,7 @@ body {
 .navbar,
 .navbar-inverse,
 .navbar .dropdown-menu {
-  background-color:  #3367D6;
-  border: none;
-}
-
-.navbar-default .navbar-nav > .open > a {
-  background-color:  #3367D6;
-}
-
-.dropdown.open,
-.dropdown {
-  background-color:  #3367D6 !important;  
-}
-
-.navbar a,
-.navbar-inverse a,
-.navbar .dropdown-menu a {
-  height: 50px;
+  background-color: #DA4453;
 }
 
 .navbar .dropdown-menu {
@@ -45,82 +34,9 @@ body {
   padding: 15px;
 }
 
-.navbar .dropdown-menu a:hover {
-  background-color: #3367D6;
-}
-
+.navbar .dropdown-menu a:hover,
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #3367D6;
-  border-bottom: 3px solid #FFFFFF;
-}
-
-#toc {
-  border: none;
-}
-
-#toc a {
-  color:#000000;
-  font-size: 13px !important;
-  padding: 5px 10px !important;
-  border-left: 4px solid #FFFFFF;
-}
-
-#toc .toc-active,
-#toc .toc-active a {
-  background-color: #FFFFFF !important;
-  color:#4285F4 !important;
-}
-
-#toc .toc-active a {
-  border-left: 4px solid #4285F4;
-}
-
-#toc a:hover,
-#toc a:focus {
-  background-color: #FFFFFF;
-  color:#4285F4 !important;
-}
-
-/** Toc redefinition **/
-#toc .toc-h1,
-#toc .toc-h2,
-#toc .toc-h3,
-#toc .toc-h4,
-#toc .toc-h5,
-#toc .toc-h6 {
-  margin-left: 0px;
-}
-
-#toc .toc-h1 a {
-  padding-left: 5px !important;
-},
-
-#toc .toc-h2 a {
-  padding-left: 10px !important;
-}
-
-#toc .toc-h3 a { 
-  padding-left: 15px !important;
-}
-
-#toc .toc-h4 a { 
-  padding-left: 20px !important;
-}
-
-#toc .toc-h5 a { 
-  padding-left: 25px !important;
-}
-
-#toc .toc-h6 a { 
-  padding-left: 30px !important;
-}
-
-#main > h1:nth-child(2) {
-  display: none;
-}
-
-#toc > .nav > li:nth-child(1) {
-  display: none;
+  background-color: #ED5565;
 }

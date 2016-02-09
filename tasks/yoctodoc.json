@@ -1,33 +1,26 @@
 {
   "tags": {
-    "allowUnknownTags": true,
-    "dictionaries": [
-      "jsdoc",
-      "closure"
-    ]
+    "allowUnknownTags": true
   },
-  "plugins": [
-    "plugins/markdown"
-  ],
+  "source": {
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [],
   "templates": {
-    "pageTitle": "",
-    "systemName": "Yoctodoc plugin",
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "systemName": "Oblivion",
     "footer": "",
-    "copyright": "Copyright © 2014. Yocto SAS. All rights reserved. http://www.yocto.re",
+    "copyright": "Copyright © 2014",
     "navType": "vertical",
-    "theme": "cosmo",
+    "theme": "oblivion",
     "linenums": true,
-    "collapseSymbols": true,
-    "inverseNav": false,
-    "outputSourceFiles": false,
-    "outputSourcePath": false,
-    "dateFormat": "DD/MM/GG HH:mm:ss",
-    "highlightTutorialCode": true,
-    "syntaxTheme": "dark",
+    "collapseSymbols": false,
+    "inverseNav": true,
     "applicationName": "Yoctodoc plugin"
-  },
-  "markdown": {
-    "parser": "gfm",
-    "hardwrap": true
   }
 }
