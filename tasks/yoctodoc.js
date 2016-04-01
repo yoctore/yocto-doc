@@ -113,8 +113,7 @@ module.exports = function (grunt) {
   });
 
   // Register default plugin process
-  grunt.registerMultiTask('yoctodoc',
-    'Generate documention for yocto source from JsDoc & jaguarjs tools', function () {
+  grunt.registerMultiTask('yoctodoc', 'Generate js documention from JsDoc', function () {
     // default app name if current name of package.json
     var appName = grunt.config.data.pkg.name;
 
