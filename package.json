@@ -1,7 +1,7 @@
 {
-  "name": "yoctodoc",
-  "description": "Generate documention for yocto source from JsDoc & jaguarjs tools",
-  "version": "0.5.0",
+  "name": "yocto-doc",
+  "description": "Generate documention for javascript source from JsDoc & Minami theme",
+  "version": "1.0.0",
   "author": {
     "name": "ROBERT Mathieu",
     "email": "mathieu@yocto.re",
@@ -21,19 +21,11 @@
   "bugs": {
     "url": "https://github.com/yoctore/yocto-doc/issues"
   },
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
-    }
-  ],
+  "license": "Apache-2.0",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">=4.3.1"
   },
   "scripts": {},
-  "devDependencies": {
-    "yoctohint": "1.1.7"
-  },
   "files": [
     "tasks"
   ],
@@ -47,11 +39,16 @@
   ],
   "dependencies": {
     "asciify": "^1.3.5",
-    "chalk": "^1.1.0",
-    "glob": "^5.0.14",
+    "chalk": "^1.1.3",
+    "docdash": "^0.1.0",
+    "glob": "^7.0.3",
+    "grunt-jsdoc": "^1.1.0",
     "hooker": "^0.2.3",
-    "html": "0.0.10",
-    "jsdoc-oblivion": "0.0.4",
-    "lodash": "^3.10.1"
+    "lodash": "^4.6.1",
+    "minami": "^1.1.1"
+  },
+  "devDependencies": {
+    "yocto-hint": "^1.3.6",
+    "grunt": "^0.4.5"
   }
 }

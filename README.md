@@ -1,11 +1,15 @@
+[![NPM](https://nodei.co/npm/yocto-doc.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/yocto-doc/)
+
 ![alt text](https://david-dm.org/yoctore/yocto-doc.svg "Dependencies Status")
+[![Code Climate](https://codeclimate.com/github/yoctore/yocto-doc/badges/gpa.svg)](https://codeclimate.com/github/yoctore/yocto-doc)
+[![Test Coverage](https://codeclimate.com/github/yoctore/yocto-doc/badges/coverage.svg)](https://codeclimate.com/github/yoctore/yocto-doc/coverage)
+[![Issue Count](https://codeclimate.com/github/yoctore/yocto-doc/badges/issue_count.svg)](https://codeclimate.com/github/yoctore/yocto-doc)
+[![Build Status](https://travis-ci.org/yoctore/yocto-doc.svg?branch=master)](https://travis-ci.org/yoctore/yocto-doc)
 
-[ THIS PACKAGE IS IN DEVELOPMENT ]
+# Overview
 
-# yocto-doc
-
-
-> Generate documention for source. Build from jsDoc & jaguarjs tools
+This module generate documentation for source.
+Documentation was builded from jsDoc & Minami or docdash theme
 
 ## How to use
 
@@ -16,19 +20,16 @@
 npm install yocto-doc --save-dev
 ```
 
-```shell
-# If your install from yocto lab. Add this line on your package.json
-{
-    "yoctohint" : "git+ssh://git@lab.yocto.digital:yocto-node-modules/yocto-doc.git"
-}
-```
 ### Overview & Options
-In your project's Gruntfile, add a section named `yoctodoc` to the data object passed into `grunt.initConfig()`.
+
+In your project's Gruntfile, add a section named `yoctodoc` to the data object 
+passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
   yoctodoc : {
       options : {
+        // theme if you want to change (mimani and docdash is available) => docdash by default
         // change your path destination
         destination : 'Your_new_absolute_destination_path',
         // change your documentation name
@@ -45,10 +46,10 @@ grunt.loadNpmTasks('yoctodoc');
 grunt.registerTask('doc', 'yoctodoc');
 ```
 
-Run IT 
+# How to run ? 
 
 ```shell
 grunt doc
-
-// Data will output on documentation directory on your current project path
 ```
+
+=> Data will output on a "documentation" directory on your current project path

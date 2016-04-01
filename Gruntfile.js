@@ -16,17 +16,18 @@ module.exports = function (grunt) {
     yoctodoc  : {
       options : {
         name        : 'Yoctodoc plugin',
+        destination : './example/documentation/generated'
       },
-      all     : [ 'test/index-test.js' ]
+      all     : [ 'example/index-test.js' ]
     }
   });
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
   // load npm task
-  grunt.loadNpmTasks('grunt-jsdoc');
-  grunt.loadNpmTasks('yoctohint');
+  grunt.loadNpmTasks('yocto-hint');
   // Register Task
   grunt.registerTask('hint', [ 'yoctohint' ]);
   grunt.registerTask('doc', [ 'yoctodoc' ]);
+  grunt.registerTask('default', [ 'hint', 'doc' ]);
 };

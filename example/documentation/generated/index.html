@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-yocto-node-modules_Logger-Logger.html">Logger</a><ul class='methods'><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#addDailyRotateTransport">addDailyRotateTransport</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#consoleTransportFormatter">consoleTransportFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#disableConsole">disableConsole</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#disableExceptions">disableExceptions</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#enableConsole">enableConsole</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#enableExceptions">enableExceptions</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#failure">failure</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#success">success</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~colorizeFormatter">colorizeFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~labelFormatter">labelFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~timestampFormatter">timestampFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~transportFormatter">transportFormatter</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a><ul class='methods'><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~banner">banner</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~changeLevel">changeLevel</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~dailyRotateFileTransportFormatter">dailyRotateFileTransportFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~debug">debug</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~error">error</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~info">info</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~less">less</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~more">more</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~process">process</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~verbose">verbose</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~warning">warning</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><p><a href="https://nodei.co/npm/yocto-doc/"><img src="https://nodei.co/npm/yocto-doc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<p><img src="https://david-dm.org/yoctore/yocto-doc.svg" alt="alt text" title="Dependencies Status">
+<a href="https://codeclimate.com/github/yoctore/yocto-doc"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://codeclimate.com/github/yoctore/yocto-doc/coverage"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/coverage.svg" alt="Test Coverage"></a>
+<a href="https://codeclimate.com/github/yoctore/yocto-doc"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/issue_count.svg" alt="Issue Count"></a>
+<a href="https://travis-ci.org/yoctore/yocto-doc"><img src="https://travis-ci.org/yoctore/yocto-doc.svg?branch=master" alt="Build Status"></a></p>
+<h1>Overview</h1><p>This module generate documentation for source.
+Documentation was builded from jsDoc &amp; Minami or docdash theme</p>
+<h2>How to use</h2><blockquote>
+<p>In your project install our plugin</p>
+</blockquote>
+<pre class="prettyprint source lang-shell"><code># If you install from npm registry
+npm install yocto-doc --save-dev</code></pre><h3>Overview &amp; Options</h3><p>In your project's Gruntfile, add a section named <code>yoctodoc</code> to the data object 
+passed into <code>grunt.initConfig()</code>.</p>
+<pre class="prettyprint source lang-js"><code>grunt.initConfig({
+  yoctodoc : {
+      options : {
+        // theme if you want to change (mimani and docdash is available) => docdash by default
+        // change your path destination
+        destination : 'Your_new_absolute_destination_path',
+        // change your documentation name
+        name : 'Your New name to set into your generated documentation'
+      },
+      // Set all your file here
+      all : [ 'file.js', 'file2.js', 'file3.js' ]
+    }
+});
+
+// load task
+grunt.loadNpmTasks('yoctodoc');
+// register task
+grunt.registerTask('doc', 'yoctodoc');</code></pre><h1>How to run ?</h1><pre class="prettyprint source lang-shell"><code>grunt doc</code></pre><p>=&gt; Data will output on a &quot;documentation&quot; directory on your current project path</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Apr 02 2016 01:28:42 GMT+0400 (RET) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

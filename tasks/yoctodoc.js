@@ -2,7 +2,6 @@
 
 var _         = require('lodash');
 var hooker    = require('hooker');
-var beautify  = require('html');
 var glob      = require('glob');
 
 /**
@@ -16,8 +15,6 @@ module.exports = function (grunt) {
    * @private
    */
   var configPath    = [ __dirname, 'yoctodoc.json' ].join('/');
-  // default css to include
-  var cssToInclude  = '<link type="text/css" rel="stylesheet" href="styles/yoctostyle.css"></head>';
   // default choosen themes
   var choosenTheme;
 
@@ -31,8 +28,7 @@ module.exports = function (grunt) {
           template    : [
             process.cwd(),
             'node_modules',
-            'jsdoc-oblivion',
-            'template'
+            '%theme%',
           ].join('/'),
           readme      : [ process.cwd(), 'README.md' ].join('/')
         },
@@ -91,31 +87,6 @@ module.exports = function (grunt) {
           // Need to log end message with custom param
           grunt.log[cMsg.level](cMsg.msg);
 
-          // Add yocto style in fo file
-          grunt.log.ok('Move & Link yoctostyle.css into index.html');
-
-          var htmlf = glob.sync([
-            grunt.config.data.jsdoc.dist.options.destination,
-            '*.html'
-          ].join('/'));
-          
-          _.each(htmlf, function(h) {  
-            // get current html
-            var html          = grunt.file.read(h);
-
-            // replace html content to add our style
-            html = html.replace(/<\/head>/gm, cssToInclude);
-            // saving new template content
-            grunt.file.write(h, beautify.prettyPrint(html,  { indexSize : 2 }));
-          })
-
-          // copy custom style on doc style directory
-          grunt.file.copy(
-            [ __dirname, 'yoctostyle.css' ].join('/'),
-            [ grunt.config.data.jsdoc.dist.options.destination,
-            'styles/yoctostyle.css' ].join('/')
-          );
-
           // removing no needed file
           var unused = glob.sync([
             grunt.config.data.jsdoc.dist.options.destination,
@@ -162,16 +133,22 @@ module.exports = function (grunt) {
       ].join(' '));
     }
 
+    // set theme
+    var theme = defaultOptions.jsdoc.dist.options.template.replace('%theme%',
+      options.theme || 'docdash');
+    // set value
+    defaultOptions.jsdoc.dist.options.template = theme;
+
     // Filter file and return correct file path
     this.data = this.filesSrc.map(function (filepath) {
       // exists ?
       if (!grunt.file.exists(filepath)) {
-        grunt.log.warn([ 'Source file"', filepath, '"not found.' ].join(' '));
+        grunt.log.warn([ 'Source file "', filepath, '" not found.' ].join(''));
 
         // bash value retutning false
         return false;
       } else {
-        grunt.log.ok([ 'Source file "', filepath, '"exists. adding on filter list.'].join(' '));
+        grunt.log.ok([ 'Source file "', filepath, '" exists. adding on filter list.'].join(''));
 
         // return file path
         return filepath;
@@ -182,11 +159,11 @@ module.exports = function (grunt) {
       _.isString(options.name) && !_.isEmpty(options.name)) {
 
       // Log message and merge options
-      grunt.log.ok('New name options given for yoctodoc. Processing update.');
+      grunt.log.ok('A New name was given for this documentation build. Processing update.');
       // assign
       appName = options.name;
       // inform
-      grunt.log.ok([ 'New name added : [ ', appName, ' ] - Processing update.' ].join(''));
+      grunt.log.ok([ 'New name added : [ ', appName, ' ] - update succeed.' ].join(''));
     }
 
     // change config of file for app name
