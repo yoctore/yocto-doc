@@ -52,5 +52,5 @@ grunt doc
 
 See below kind of examples.
 
-[![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png)]]
-[![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png)]]
+![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png)
+![Screen Two](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png)
