@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         destination     : './documentation',
         copyExtraFiles  : [ ]
       },
-      all     : [ 'tasks' ]
+      all     : [ 'tasks/*.js' ]
     }
   });
 

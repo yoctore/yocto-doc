@@ -54,3 +54,6 @@ See below kind of examples.
 
 ![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png)
 ![Screen Two](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png)
+![Screen Three](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-3.png)
+![Screen Four](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-4.png)
+![Screen Five](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-5.png)
