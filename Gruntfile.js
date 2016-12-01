@@ -15,10 +15,10 @@ module.exports = function (grunt) {
     // Define yocto doc config
     yoctodoc  : {
       options : {
-        name        : 'Yoctodoc plugin',
-        destination : './example/documentation/generated'
+        destination     : './documentation',
+        copyExtraFiles  : [ ]
       },
-      all     : [ 'example/index-test.js' ]
+      all     : [ 'tasks' ]
     }
   });
 

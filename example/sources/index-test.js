@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>index-test.js - Documentation</title>
-
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-</head>
-<body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-yocto-node-modules_Logger-Logger.html">Logger</a><ul class='methods'><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#addDailyRotateTransport">addDailyRotateTransport</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#consoleTransportFormatter">consoleTransportFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#disableConsole">disableConsole</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#disableExceptions">disableExceptions</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#enableConsole">enableConsole</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#enableExceptions">enableExceptions</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#failure">failure</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#success">success</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~colorizeFormatter">colorizeFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~labelFormatter">labelFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~timestampFormatter">timestampFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger-Logger.html#~transportFormatter">transportFormatter</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-yocto-node-modules_Logger.html">yocto-node-modules/Logger</a><ul class='methods'><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~banner">banner</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~changeLevel">changeLevel</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~dailyRotateFileTransportFormatter">dailyRotateFileTransportFormatter</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~debug">debug</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~error">error</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~info">info</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~less">less</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~more">more</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~process">process</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~verbose">verbose</a></li><li data-type='method'><a href="module-yocto-node-modules_Logger.html#~warning">warning</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">index-test.js</h1>
-    
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @author Mathieu ROBERT &lt;mathieu@yocto.re>
- * @copyright Yocto SAS, All right reserved &lt;http://www.yocto.re>
+/**
+ * @author Mathieu ROBERT <mathieu@yocto.re>
+ * @copyright Yocto SAS, All right reserved <http://www.yocto.re>
  * @module yocto-node-modules/Logger
  */
 'use strict';
@@ -93,7 +53,9 @@ function Logger () {
 
   /**
    * @property {Object} ERROR_LOG_LEVEL Default const to define error log level rules on current class
-   * @default { name : 'error', level : 1, fn : 'error' }
+   * @default {
+    name : 'error', level : 1, fn : 'error'
+   }
    * @const
    */
   this.ERROR_LOG_LEVEL      = { name : 'error', level : 1, fn : 'error' };
@@ -146,25 +108,25 @@ function Logger () {
                 (_.isNull(options.timestamp) ?
                 null :
                 moment().format()),
-      message : (!_.isUndefined(options.message) &amp;&amp; !_.isEmpty(options.message) ?
+      message : (!_.isUndefined(options.message) && !_.isEmpty(options.message) ?
                 options.message :
                 ''),
-      meta    : (!_.isUndefined(options.meta) &amp;&amp; Object.keys(options.meta).length ?
+      meta    : (!_.isUndefined(options.meta) && Object.keys(options.meta).length ?
                 JSON.stringify(options.meta) :
                 ''),
     };
 
-    if (_.has(options, 'label') &amp;&amp; _.isFunction(options.label)) {
+    if (_.has(options, 'label') && _.isFunction(options.label)) {
       dataToLog.level = options.label(options.level.toLowerCase());
     }
 
-    if (_.has(options, 'timestamp') &amp;&amp; _.isFunction(options.timestamp)) {
+    if (_.has(options, 'timestamp') && _.isFunction(options.timestamp)) {
       dataToLog.date = options.timestamp();
     }
 
     // Use colorize only on console mode
     if (colorize) {
-      if (_.has(options, 'colorize') &amp;&amp; _.isFunction(options.colorize)) {
+      if (_.has(options, 'colorize') && _.isFunction(options.colorize)) {
         // Prepare value to use on logger
         colorize = options.colorize(options.level);
 
@@ -181,12 +143,12 @@ function Logger () {
     }
 
     // Check if we have message
-    if (!_.isUndefined(dataToLog.message) &amp;&amp; !_.isEmpty(dataToLog.message)) {
+    if (!_.isUndefined(dataToLog.message) && !_.isEmpty(dataToLog.message)) {
       dformat = [ dformat, '{message}' ].join(' ');
     }
 
     // Check if we have meta
-    if (!_.isUndefined(dataToLog.meta) &amp;&amp; !_.isEmpty(dataToLog.meta)) {
+    if (!_.isUndefined(dataToLog.meta) && !_.isEmpty(dataToLog.meta)) {
       dformat = [ dformat, '{meta}' ].join(' ');
     }
 
@@ -350,7 +312,7 @@ Logger.prototype.enableConsole = function (status) {
   var fnName  = status ? 'enableConsole' : 'disableConsole';
 
   // Check instance existence ??
-  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &amp;&amp;
+  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &&
       _.isObject(this.winston.transports)) {
     // Requirements check
     if (_.has(this.winston.transports, 'console')) {
@@ -395,7 +357,7 @@ Logger.prototype.enableExceptions = function (status) {
   var fnName  = status ? 'enableExceptions' : 'disableExceptions';
 
   // Check instance existence ??
-  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &amp;&amp;
+  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &&
       _.isObject(this.winston.transports)) {
     // Parse each element before disable exceptions
     _.each(Object.keys(this.winston.transports), function (key) {
@@ -434,7 +396,7 @@ Logger.prototype.disableExceptions = function () {
 Logger.prototype.success = function (callback) {
 
   // Setting up the default callback
-  callback = (!_.isUndefined(callback) &amp;&amp; !_.isNull(callback) &amp; _.isFunction(callback)) ? callback
+  callback = (!_.isUndefined(callback) && !_.isNull(callback) & _.isFunction(callback)) ? callback
   : function () {};
 
   // Catch event and call callback
@@ -452,7 +414,7 @@ Logger.prototype.success = function (callback) {
  */
 Logger.prototype.failure = function (callback) {
   // Setting up the default callback
-  callback = (!_.isUndefined(callback) &amp;&amp; !_.isNull(callback) &amp;&amp; _.isFunction(callback)) ? callback
+  callback = (!_.isUndefined(callback) && !_.isNull(callback) && _.isFunction(callback)) ? callback
   : function () {};
 
   // Catch event and call callback
@@ -515,15 +477,15 @@ Logger.prototype.addDailyRotateTransport = function (fullpath, filename, options
           _.extend(daily, { dirname : fullpath });
 
           // Is a valid options ?
-          if (!_.isUndefined(options) &amp;&amp; !_.isNull(options) &amp;&amp; _.isObject(options)) {
+          if (!_.isUndefined(options) && !_.isNull(options) && _.isObject(options)) {
             _.extend(daily, options);
           }
 
           // Check if file is specified
-          if (!_.isUndefined(filename) &amp;&amp; !_.isEmpty(filename) &amp;&amp; !_.isNull(filename)) {
+          if (!_.isUndefined(filename) && !_.isEmpty(filename) && !_.isNull(filename)) {
 
             // Is a valid file name
-            if (_.isString(filename) &amp;&amp; !_.isEmpty(filename)) {
+            if (_.isString(filename) && !_.isEmpty(filename)) {
               _.extend(daily, { filename : filename });
             } else {
               context.warning([
@@ -597,7 +559,7 @@ Logger.prototype.process = function (level, message, meta) {
 
   try {
     // Check instance before process
-    if (!_.isUndefined(this.winston) &amp;&amp; !_.isNull(this.winston)) {
+    if (!_.isUndefined(this.winston) && !_.isNull(this.winston)) {
       // Has function ?
       if (_.has(level, 'fn')) {
         // Has meta ?
@@ -643,7 +605,7 @@ Logger.prototype.changeLevel = function (o, n, isless) {
   // Checking if new is not old level => the same => no changes needed
   if (o !== n) {
     // Test if is less and log if needed
-    if (!_.isUndefined(isless) &amp;&amp; _.isBoolean(isless) &amp;&amp; isless) {
+    if (!_.isUndefined(isless) && _.isBoolean(isless) && isless) {
       this.info([
         '[ Logger.changeLevel ] - Try to change level from',
         levels[o - 1].name,
@@ -667,7 +629,7 @@ Logger.prototype.changeLevel = function (o, n, isless) {
   }
 
   // Winston is here
-  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &amp;&amp;
+  if (!_.isUndefined(this.winston.transports) || !_.isNull(this.winston.transports) &&
       _.isObject(this.winston.transports)) {
 
     _.each(this.winston.transports, function (transport) {
@@ -690,7 +652,7 @@ Logger.prototype.more = function () {
 
   // Getting default value for log changing
   var o = this.logLevel;
-  var n = o &lt; 5 ? (o + 1) : o;
+  var n = o < 5 ? (o + 1) : o;
 
   // Show what we process
   this.info('[ Logger.more ] - Requesting more logs');
@@ -799,7 +761,7 @@ Logger.prototype.banner = function (message, cstyle) {
   };
 
   // has custom style options with color and bgColor rules
-  if (!_.isUndefined(cstyle) &amp;&amp; _.has(cstyle, 'color') &amp;&amp; _.has(cstyle, 'bgColor')) {
+  if (!_.isUndefined(cstyle) && _.has(cstyle, 'color') && _.has(cstyle, 'bgColor')) {
 
     // bg rules start by correct Prefix ?
     if (!_.startsWith('bg', cstyle.bgColor)) {
@@ -816,7 +778,7 @@ Logger.prototype.banner = function (message, cstyle) {
   var endmessage  = [ style.lDelim, message, style.rDelim ].join(' ');
 
   // check properties
-  if (_.has(chalk.styles, style.color) &amp;&amp; _.has(chalk.styles, style.bgColor)) {
+  if (_.has(chalk.styles, style.color) && _.has(chalk.styles, style.bgColor)) {
     // log full message
     console.log(chalk[style.color][style.bgColor](_.repeat(style.tDelim, endmessage.length)));
     console.log(chalk[style.color][style.bgColor](endmessage));
@@ -837,22 +799,3 @@ Logger.prototype.banner = function (message, cstyle) {
  * Export current logger to use it on node
  */
 module.exports = new (Logger)();
-</code></pre>
-        </article>
-    </section>
-
-
-
-
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Apr 02 2016 01:34:41 GMT+0400 (RET) using the Minami theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-</body>
-</html>

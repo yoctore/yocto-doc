@@ -2,25 +2,23 @@
   "tags": {
     "allowUnknownTags": true
   },
-  "source": {
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
-  },
-  "plugins": [],
+  "plugins": [
+    "plugins/markdown"
+  ],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,
     "default": {
       "outputSourceFiles": true
     },
-    "systemName": "Oblivion",
-    "footer": "",
-    "copyright": "Copyright © 2014",
-    "navType": "vertical",
-    "theme": "oblivion",
     "linenums": true,
-    "collapseSymbols": false,
-    "inverseNav": true,
-    "applicationName": "Yoctodoc plugin"
+    "collapseSymbols": false
+  },
+  "opts": {
+    "encoding": "utf8",
+    "private": true,
+    "recurse": true,
+    "template": "./node_modules/postman-jsdoc-theme",
+    "footer": "Documentation for application <b>%appname%<b> was generated at %date% with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a> module - Copyright Yocto © %year%"
   }
 }

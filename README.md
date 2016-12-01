@@ -8,22 +8,20 @@
 
 # Overview
 
-This module generate documentation for source.
-Documentation was builded from jsDoc & Minami or docdash theme
+This module generate documentation from source.
 
-## How to use
+Documentation was builded with jsDoc and with customized postman-jsdoc-theme.
 
-> In your project install our plugin
+## How to use ?
+
+First install with `npm` command.
 
 ```shell
 # If you install from npm registry
 npm install yocto-doc --save-dev
 ```
 
-### Overview & Options
-
-In your project's Gruntfile, add a section named `yoctodoc` to the data object 
-passed into `grunt.initConfig()`.
+After that configure your project's Gruntfile with a new section named `yoctodoc` (see below).
 
 ```js
 grunt.initConfig({
@@ -31,12 +29,10 @@ grunt.initConfig({
       options : {
         // theme if you want to change (mimani and docdash is available) => docdash by default
         // change your path destination
-        destination : 'Your_new_absolute_destination_path',
-        // change your documentation name
-        name : 'Your New name to set into your generated documentation'
+        destination : 'Your_new_absolute_destination_path'
       },
       // Set all your file here
-      all : [ 'file.js', 'file2.js', 'file3.js' ]
+      all : [ 'file.js', 'file2.js', 'file3.js', 'OR a path all js files are added' ]
     }
 });
 
@@ -46,10 +42,15 @@ grunt.loadNpmTasks('yoctodoc');
 grunt.registerTask('doc', 'yoctodoc');
 ```
 
-# How to run ? 
+And run grunt command
 
 ```shell
 grunt doc
 ```
 
-=> Data will output on a "documentation" directory on your current project path
+## How looks like the custom theme
+
+See below kind of examples.
+
+[![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png)]]
+[![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png)]]
