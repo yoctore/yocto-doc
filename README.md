@@ -70,12 +70,12 @@ grunt.initConfig({
 
 See below kind of examples.
 
-![Screen One](extras/Capture-1.png)
+![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-1.png)
 
-![Screen Two](extras/Capture-2.png)
+![Screen Two](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-2.png)
 
-![Screen Three](extras/Capture-3.png)
+![Screen Three](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-3.png)
 
-![Screen Four](extras/Capture-4.png)
+![Screen Four](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-4.png)
 
-![Screen Five](extras/Capture-5.png)
+![Screen Five](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-5.png)
