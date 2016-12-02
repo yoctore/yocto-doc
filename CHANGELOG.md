@@ -1,3 +1,7 @@
+## 2.1.1 (2016/12/02)
+
+- Fix path issue on copy custom css
+
 ## 2.1.0 (2016/12/02)
 
 - Add extraFiles property to config. This property copy extra files on documentation ouput directory.

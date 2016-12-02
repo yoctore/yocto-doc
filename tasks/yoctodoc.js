@@ -14,6 +14,8 @@ var path      = require('path');
 module.exports = function (grunt) {
   // default config path value
   var configPath    = [ __dirname, 'yoctodoc.json' ].join('/');
+  // is real path
+  var realpath = path.normalize([ __dirname, '..' ].join('/'));
 
   // default config option to use on build process
   var defaultOptions = {
@@ -23,7 +25,7 @@ module.exports = function (grunt) {
           destination : [ process.cwd(), 'documentation' ].join('/'),
           configure   : configPath,
           template    : [
-            process.cwd(),
+            realpath,
             'node_modules',
             'postman-jsdoc-theme',
           ].join('/'),
@@ -86,10 +88,10 @@ module.exports = function (grunt) {
             grunt.log.ok('Copying style files on destination path. please wait ...');
             // copy custom css to dest file
             grunt.file.copy(
-              [ process.cwd(), 'tasks/css/custom.css' ].join('/'),
+              [ __dirname, 'css/custom.css' ].join('/'),
               [ grunt.config.data.jsdoc.dist.options.destination, 'styles/custom.css' ].join('/'));
             // copy custom css to dest file
-            grunt.file.copy([ process.cwd(), 'node_modules/color-themes-for-google-code-prettify',
+            grunt.file.copy([ realpath, 'node_modules/color-themes-for-google-code-prettify',
               'dist/themes/tomorrow-night-bright.css'
             ].join('/'), [
               grunt.config.data.jsdoc.dist.options.destination, 'styles/tomorrow-night.min.css'
@@ -187,9 +189,9 @@ module.exports = function (grunt) {
       return filepath;
     });
 
-    // parse all files
+    // parse all extraFiles files
     _.each(options.copyExtraFiles || [], function (extra) {
-    // extraFiles
+      // push all items on storage list
       defaultOptions.jsdoc.dist.options.extraFiles.push(glob.sync(extra, { absolute : true }));
     });
 
@@ -233,7 +235,7 @@ module.exports = function (grunt) {
     grunt.log.ok([ 'Changing cwd directory to load modules because version of node is',
       process.version ].join(' '));
     // change path to yocto-hint modules
-    process.chdir(path.normalize([ __dirname, '..' ].join('/')));
+    process.chdir(realpath);
   }
 
   // Load grunt needed task

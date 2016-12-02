@@ -2,6 +2,7 @@
 .readme h1, .readme h2, .readme h3, .readme h4, .readme h5, .readme h6 {
   color: red;
   border-bottom: 1px solid red;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -27,6 +28,8 @@ h5, h6 {
 a {
   color: red;
 }
+
+/* Theme override */
 
 nav h2 {
   background: red;
@@ -131,8 +134,18 @@ tt, code, kbd, samp {
 }
 
 .params td,
-.props td {
+.props td,
+.readme td {
   border: 1px solid #CCC;
+  padding: 10px;
+}
+
+.readme th {
+  border: 1px solid #CCC;
+}
+
+.readme table {
+  border-collapse: collapse;
 }
 
 .type-signature {
