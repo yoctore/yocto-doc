@@ -163,7 +163,7 @@ footer {
 .version {
   position: absolute;
   top: 4px;
-  left: 195px;
+  right: 5px;
   background: white;
   color: red;
   padding: 4px;
@@ -188,4 +188,13 @@ footer {
 
 .article pre {
   border-radius: 0;
+}
+
+input.search {
+  border: none;
+  border-bottom: 1px;
+  width: 235px;
+  margin-left: 5px;
+  margin-top: 15px;
+  padding: 5px;
 }

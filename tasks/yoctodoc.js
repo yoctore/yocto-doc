@@ -96,6 +96,20 @@ module.exports = function (grunt) {
             ].join('/'), [
               grunt.config.data.jsdoc.dist.options.destination, 'styles/tomorrow-night.min.css'
             ].join('/'));
+
+            // copy css file
+            grunt.file.copy(
+              [ __dirname, 'javascript/lodash.min.js' ].join('/'),
+              [ grunt.config.data.jsdoc.dist.options.destination,
+                'scripts/lodash.min.js' ].join('/'));
+            grunt.file.copy(
+              [ __dirname, 'javascript/jquery.min.js' ].join('/'),
+              [ grunt.config.data.jsdoc.dist.options.destination,
+                'scripts/jquery.min.js' ].join('/'));
+            grunt.file.copy(
+              [ __dirname, 'javascript/search.js' ].join('/'),
+              [ grunt.config.data.jsdoc.dist.options.destination,
+                'scripts/search.js' ].join('/'));
             // parse all template to set properly the current header name
             var templates = glob.sync([
               grunt.config.data.jsdoc.dist.options.destination,
@@ -136,12 +150,22 @@ module.exports = function (grunt) {
                 .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
                 '<link type="text/css" rel="stylesheet" href="styles/tomorrow-night.min.css"/>\n$1'
                 ].join(''))
+                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
+                '<script type="text/javascript" src="scripts/lodash.min.js"></script>\n$1'
+                ].join(''))
+                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
+                '<script type="text/javascript" src="scripts/jquery.min.js"></script>\n$1'
+                ].join(''))
+                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
+                '<script type="text/javascript" src="scripts/search.js"></script>\n$1'
+                ].join(''))
                 .replace(/(<footer>)(.*\n.*\n)(<\/footer>)/gi, [ '$1',
                   configUsed.opts.footer.replace('%date%', date)
                                         .replace('%appname%', grunt.config.data.pkg.name)
                                         .replace('%year%', date.getFullYear()), '$3' ].join(''))
                 .replace(/(<nav>\n.*<h2>)(.*)(<\/h2>)/gi, [ '$1$2<span class="version">',
-                    [ 'v', grunt.config.data.pkg.version ].join(''), '</span>$3'].join(''));
+                    [ 'v', grunt.config.data.pkg.version ].join(''), '</span>$3',
+                    '<input class="search" placeholder="Type your search here ...." />'].join(''));
 
               // rewrite file with correct name
               grunt.file.write(t, content);

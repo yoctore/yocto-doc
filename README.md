@@ -36,7 +36,7 @@ grunt.initConfig({
 });
 
 // load task
-grunt.loadNpmTasks('yoctodoc');
+grunt.loadNpmTasks('yocto-doc');
 // register task
 grunt.registerTask('doc', 'yoctodoc');
 ```

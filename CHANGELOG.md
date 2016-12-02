@@ -1,3 +1,11 @@
+## 2.1.3 (2016/12/02)
+
+- Add search input on left menu
+
+## 2.1.2 (2016/12/02)
+
+- Update readme content
+
 ## 2.1.1 (2016/12/02)
 
 - Fix path issue on copy custom css
