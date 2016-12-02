@@ -16,7 +16,7 @@ module.exports = function (grunt) {
     yoctodoc  : {
       options : {
         destination     : './documentation',
-        copyExtraFiles  : [ ]
+        copyExtraFiles  : [ 'assets/Capture-1.png', 'assets/*.png' ]
       },
       all     : [ 'tasks/*.js' ]
     }

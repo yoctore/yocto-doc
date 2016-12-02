@@ -27,7 +27,6 @@ After that configure your project's Gruntfile with a new section named `yoctodoc
 grunt.initConfig({
   yoctodoc : {
       options : {
-        // theme if you want to change (mimani and docdash is available) => docdash by default
         // change your path destination
         destination : 'Your_new_absolute_destination_path'
       },
@@ -48,12 +47,35 @@ And run grunt command
 grunt doc
 ```
 
-## How looks like the custom theme
+## How to add external files on documentation directory ?
+
+To use this feature you can use copyExtraFiles property on your grunt file.
+You can use full path or wilcard to find wanted files.
+
+```js
+grunt.initConfig({
+  yoctodoc : {
+      options : {
+        // change your path destination
+        destination : 'Your_new_absolute_destination_path'
+        copyExtraFiles : [ 'mayfile.myextension', './directory/myfile.extension', './directory/*.js' ]
+      },
+      // Set all your file here
+      all : [ 'file.js', 'file2.js', 'file3.js', 'OR a path all js files are added' ]
+    }
+});
+```
+
+## How looks like the custom theme ?
 
 See below kind of examples.
 
-![Screen One](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png)
-![Screen Two](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png)
-![Screen Three](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-3.png)
-![Screen Four](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-4.png)
-![Screen Five](https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-5.png)
+![Screen One](extras/Capture-1.png)
+
+![Screen Two](extras/Capture-2.png)
+
+![Screen Three](extras/Capture-3.png)
+
+![Screen Four](extras/Capture-4.png)
+
+![Screen Five](extras/Capture-5.png)

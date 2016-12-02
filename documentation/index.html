@@ -63,7 +63,6 @@ npm install yocto-doc --save-dev</code></pre><p>After that configure your projec
 <pre class="prettyprint source lang-js"><code>grunt.initConfig({
   yoctodoc : {
       options : {
-        // theme if you want to change (mimani and docdash is available) => docdash by default
         // change your path destination
         destination : 'Your_new_absolute_destination_path'
       },
@@ -76,12 +75,24 @@ npm install yocto-doc --save-dev</code></pre><p>After that configure your projec
 grunt.loadNpmTasks('yoctodoc');
 // register task
 grunt.registerTask('doc', 'yoctodoc');</code></pre><p>And run grunt command</p>
-<pre class="prettyprint source lang-shell"><code>grunt doc</code></pre><h2>How looks like the custom theme</h2><p>See below kind of examples.</p>
-<p><img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-1.png" alt="Screen One">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-2.png" alt="Screen Two">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-3.png" alt="Screen Three">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-4.png" alt="Screen Four">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/assets/Capture-5.png" alt="Screen Five"></p></article>
+<pre class="prettyprint source lang-shell"><code>grunt doc</code></pre><h2>How to add external files on documentation directory ?</h2><p>To use this feature you can use copyExtraFiles property on your grunt file.
+You can use full path or wilcard to find wanted files.</p>
+<pre class="prettyprint source lang-js"><code>grunt.initConfig({
+  yoctodoc : {
+      options : {
+        // change your path destination
+        destination : 'Your_new_absolute_destination_path'
+        copyExtraFiles : [ 'mayfile.myextension', './directory/myfile.extension', './directory/*.js' ]
+      },
+      // Set all your file here
+      all : [ 'file.js', 'file2.js', 'file3.js', 'OR a path all js files are added' ]
+    }
+});</code></pre><h2>How looks like the custom theme ?</h2><p>See below kind of examples.</p>
+<p><img src="extras/Capture-1.png" alt="Screen One"></p>
+<p><img src="extras/Capture-2.png" alt="Screen Two"></p>
+<p><img src="extras/Capture-3.png" alt="Screen Three"></p>
+<p><img src="extras/Capture-4.png" alt="Screen Four"></p>
+<p><img src="extras/Capture-5.png" alt="Screen Five"></p></article>
     </section>
 
 
@@ -93,7 +104,7 @@ grunt.registerTask('doc', 'yoctodoc');</code></pre><p>And run grunt command</p>
 
 <br class="clear">
 
-<footer>Documentation for application <b>yocto-doc<b> was generated at Fri Dec 02 2016 02:06:56 GMT+0400 (RET) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a> module - Copyright Yocto © 2016</footer>
+<footer>Documentation for application <b>yocto-doc<b> was generated at Fri Dec 02 2016 15:01:12 GMT+0400 (RET) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a> module - Copyright Yocto © 2016</footer>
 
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>

@@ -3,6 +3,8 @@
 var _         = require('lodash');
 var hooker    = require('hooker');
 var glob      = require('glob');
+var semver    = require('semver');
+var path      = require('path');
 
 /**
  * Default export for grunt yocto-doc-plugin
@@ -25,7 +27,8 @@ module.exports = function (grunt) {
             'node_modules',
             'postman-jsdoc-theme',
           ].join('/'),
-          readme      : [ process.cwd(), 'README.md' ].join('/')
+          readme      : [ process.cwd(), 'README.md' ].join('/'),
+          extraFiles  : []
         },
         src     : []
       }
@@ -79,6 +82,8 @@ module.exports = function (grunt) {
 
           // only if all is done
           if (done) {
+            // info message
+            grunt.log.ok('Copying style files on destination path. please wait ...');
             // copy custom css to dest file
             grunt.file.copy(
               [ process.cwd(), 'tasks/css/custom.css' ].join('/'),
@@ -94,11 +99,25 @@ module.exports = function (grunt) {
               grunt.config.data.jsdoc.dist.options.destination,
               '*.html'
             ].join('/'));
-            // current date
-            var date = new Date();
+
+            if (!_.isEmpty(defaultOptions.jsdoc.dist.options.extraFiles)) {
+              // info message
+              grunt.log.ok('Copying extra files on destination path. please wait ...');
+              // copy all
+              _.each(defaultOptions.jsdoc.dist.options.extraFiles, function (extra) {
+                // parse data
+                var parse = path.parse(extra);
+                grunt.file.copy(extra, [
+                  grunt.config.data.jsdoc.dist.options.destination, 'extras', parse.base
+                ].join('/'));
+              });
+            }
 
             // info message
             grunt.log.ok('Updating each page with custom value. please wait ...');
+
+            // current date
+            var date = new Date();
 
             // get config used
             var configUsed = JSON.parse(grunt.file.read(configPath));
@@ -168,6 +187,16 @@ module.exports = function (grunt) {
       return filepath;
     });
 
+    // parse all files
+    _.each(options.copyExtraFiles || [], function (extra) {
+    // extraFiles
+      defaultOptions.jsdoc.dist.options.extraFiles.push(glob.sync(extra, { absolute : true }));
+    });
+
+    // normalize extraFiles storage
+    defaultOptions.jsdoc.dist.options.extraFiles = _.uniq(
+      _.flatten(defaultOptions.jsdoc.dist.options.extraFiles));
+
     // Has data ?
     if (!_.isEmpty(this.data)) {
       // notify console
@@ -193,6 +222,22 @@ module.exports = function (grunt) {
     }
   });
 
+  // save initial path
+  var cwd             = process.cwd();
+  // si lower than last node LTS version (6.9.1)
+  var isLtThanLastLts = semver.lt(process.version, '6.9.1');
+
+  // check is valid ?
+  if (isLtThanLastLts) {
+    // logging message
+    grunt.log.ok([ 'Changing cwd directory to load modules because version of node is',
+      process.version ].join(' '));
+    // change path to yocto-hint modules
+    process.chdir(path.normalize([ __dirname, '..' ].join('/')));
+  }
+
   // Load grunt needed task
   grunt.loadNpmTasks('grunt-jsdoc');
+  // return to the initial path
+  process.chdir(cwd);
 };
