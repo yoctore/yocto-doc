@@ -1,3 +1,7 @@
+## 2.1.4 (2016/12/05)
+
+- Update main theme color to use yocto color 
+
 ## 2.1.3 (2016/12/02)
 
 - Add search input on left menu

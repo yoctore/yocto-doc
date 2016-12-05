@@ -1,7 +1,7 @@
 /* Markdown theme */
 .readme h1, .readme h2, .readme h3, .readme h4, .readme h5, .readme h6 {
-  color: red;
-  border-bottom: 1px solid red;
+  color: black;
+  border-bottom: 1px solid black;
   text-transform: uppercase;
 }
 
@@ -31,18 +31,30 @@ a {
 
 /* Theme override */
 
+#main section header h2 {
+  display: none;
+}
+
+nav {
+  background-color: black;
+}
+
 nav h2 {
-  background: red;
+  background: white;
+}
+
+nav > h2 > a {
+  color: black !important;
 }
 
 .name {
-  color: red;
+  color: black;
 }
 
 nav h3 {
   margin-left: 10px;
   margin-right: 10px;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid white;
   padding-left: 0px;
 }
 
@@ -69,7 +81,7 @@ nav ul ul a {
 }
 
 .prettyprint, li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-  background: rgb(51, 51, 51) !important;
+  background: black !important;
 }
 
 .prettyprint code {
@@ -92,7 +104,9 @@ h1.page-title {
 }
 
 .details .tag-source,
-.details .tag-see {
+.details .tag-see,
+.details dt,
+.details dd {
   font-size: 12px;
   font-style: italic;
 }
@@ -111,7 +125,7 @@ h1.page-title {
 }
 
 h3.subsection-title {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid black;
   line-height: 40px;
 }
 
@@ -120,7 +134,8 @@ h3 {
 }
 
 .page-title {
-  color: red;
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 tt, code, kbd, samp {
@@ -153,7 +168,7 @@ tt, code, kbd, samp {
 }
 
 footer {
-  background: rgb(51, 51, 51);
+  background: black;
   bottom: 0;
   width: 100%;
   padding: 15px;
@@ -162,12 +177,24 @@ footer {
 
 .version {
   position: absolute;
-  top: 4px;
-  right: 5px;
+  top: 0;
+  right: 0px;
   background: white;
-  color: red;
-  padding: 4px;
+  color: black;
+  padding: 35px 0px;
   text-transform: lowercase;
+  border-left: 1px solid black;
+  width: 100px;
+  height: 89px;
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  background-color: white;
+  margin: 0;
+  display: block;
+  padding: 10px;
 }
 
 .prettyprint.linenums li {
@@ -197,4 +224,6 @@ input.search {
   margin-left: 5px;
   margin-top: 15px;
   padding: 5px;
+  background: transparent;
+  border-bottom: 1px solid black;
 }

@@ -77,5 +77,3 @@ See below kind of examples.
 ![Screen Three](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-3.png)
 
 ![Screen Four](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-4.png)
-
-![Screen Five](https://raw.githubusercontent.com/yoctore/yocto-doc/master/documentation/extras/Capture-5.png)

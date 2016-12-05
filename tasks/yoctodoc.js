@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             'postman-jsdoc-theme',
           ].join('/'),
           readme      : [ process.cwd(), 'README.md' ].join('/'),
-          extraFiles  : []
+          extraFiles  : [ ]
         },
         src     : []
       }
@@ -165,7 +165,11 @@ module.exports = function (grunt) {
                                         .replace('%year%', date.getFullYear()), '$3' ].join(''))
                 .replace(/(<nav>\n.*<h2>)(.*)(<\/h2>)/gi, [ '$1$2<span class="version">',
                     [ 'v', grunt.config.data.pkg.version ].join(''), '</span>$3',
-                    '<input class="search" placeholder="Type your search here ...." />'].join(''));
+                    '<input class="search" placeholder="Type your search here ...." />'].join(''))
+                .replace(/(<nav>)(\n.*<h2>)/gi, [ '$1\n',
+                  '  <a href="http://www.yocto.re" target="_blank">',
+                  '<img class="logo" src="./extras/logo-yocto.png" alt="logo-yocto"/></a>$2'
+                ].join(''));
 
               // rewrite file with correct name
               grunt.file.write(t, content);
@@ -212,6 +216,9 @@ module.exports = function (grunt) {
       // return file path
       return filepath;
     });
+
+    // push default extra files
+    options.copyExtraFiles.push([ __dirname, 'extras/*.png' ].join('/'));
 
     // parse all extraFiles files
     _.each(options.copyExtraFiles || [], function (extra) {
