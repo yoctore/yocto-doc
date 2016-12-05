@@ -1,3 +1,7 @@
+## 2.1.6 (2016/12/05)
+
+- Update CSS font for documentation
+
 ## 2.1.5 (2016/12/05)
 
 - Bug fix on extraFiles, to prevent undefined value
