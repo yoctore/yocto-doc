@@ -217,6 +217,8 @@ module.exports = function (grunt) {
       return filepath;
     });
 
+    // prevent undefined value
+    options.copyExtraFiles = options.copyExtraFiles || [];
     // push default extra files
     options.copyExtraFiles.push([ __dirname, 'extras/*.png' ].join('/'));
 

@@ -1,3 +1,7 @@
+## 2.1.5 (2016/12/05)
+
+- Bug fix on extraFiles, to prevent undefined value
+
 ## 2.1.4 (2016/12/05)
 
 - Update main theme color to use yocto color 
