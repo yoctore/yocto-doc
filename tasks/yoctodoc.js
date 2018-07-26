@@ -129,17 +129,6 @@ module.exports = function (grunt) {
 
           // Only if all is done
           if (done) {
-            // Info message
-            grunt.log.ok('Copying style files on destination path. please wait ...');
-
-            // Parse all files to copy
-            _.each(fileToCopy, function (file) {
-              // Try to copy
-              grunt.file.copy(
-                [ __dirname, file.from ].join('/'),
-                [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
-            });
-
             // Parse all template to set properly the current header name
             var templates = glob.sync([
               grunt.config.data.jsdoc.dist.options.destination,
@@ -207,8 +196,7 @@ module.exports = function (grunt) {
                   '<link type="text/css" rel="stylesheet" href="%s"/>'.replace('%s', file.to) :
                   '<script type="text/javascript" src="%s"></script>'.replace('%s', file.to);
 
-                  // Replace content
-
+                // Replace content
                 content = content.replace(/(<\/head>)/gi, [ _.repeat(' ', 2), headerContent, os.EOL, '$1' ].join(''));
               });
 

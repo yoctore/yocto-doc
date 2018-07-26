@@ -216,17 +216,6 @@ module.exports = function (grunt) {
 
           // Only if all is done
           if (done) {
-            // Info message
-            grunt.log.ok('Copying style files on destination path. please wait ...');
-
-            // Parse all files to copy
-            _.each(fileToCopy, function (file) {
-              // Try to copy
-              grunt.file.copy(
-                [ __dirname, file.from ].join('/'),
-                [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
-            });
-
             // Parse all template to set properly the current header name
             var templates = glob.sync([
               grunt.config.data.jsdoc.dist.options.destination,
@@ -294,8 +283,7 @@ module.exports = function (grunt) {
                   '&lt;link type="text/css" rel="stylesheet" href="%s"/>'.replace('%s', file.to) :
                   '&lt;script type="text/javascript" src="%s">&lt;/script>'.replace('%s', file.to);
 
-                  // Replace content
-
+                // Replace content
                 content = content.replace(/(&lt;\/head>)/gi, [ _.repeat(' ', 2), headerContent, os.EOL, '$1' ].join(''));
               });
 
@@ -403,7 +391,7 @@ module.exports = function (grunt) {
 
   <br class="clear">
 
-  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Thu Jul 26 2018 21:03:04 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2018</footer>
+  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Thu Jul 26 2018 21:09:27 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2018</footer>
 
   <script src="scripts/linenumber.js"></script>
   <script src="scripts/pagelocation.js"></script>
