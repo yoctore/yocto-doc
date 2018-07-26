@@ -3,21 +3,47 @@
 var _         = require('lodash');
 var hooker    = require('hooker');
 var glob      = require('glob');
-var semver    = require('semver');
 var path      = require('path');
+var os        = require('os');
 
 /**
- * Default export for grunt yocto-doc-plugin
+ * This module is a grunt task to generate automatic documentation for a javascript project
  *
- * @module main
+ * This module is based on <b><a class="blank" href="http://usejsdoc.org/">jsdoc</a></b> for language syntax
+ * and on <b><a class="blank" href="https://github.com/braintree/jsdoc-template">Braintree JSDoc Template</a></b> for templating.
+ *
+ * To use it just setup your <code class="code">Gruntfile.js</code> file with this example and change needed property.
+ *
+ * @example
+ *
+ * module.exports = function (grunt) {
+ *
+ * grunt.initConfig({
+ *  // default package
+ *  pkg       : grunt.file.readJSON('package.json'),
+ *  // Define yocto doc config
+ *  yoctodoc  : {
+ *    options : {
+ *      destination     : './docs',
+ *      copyExtraFiles  : [ 'assets/*.png' ]
+ *    },
+ *   all     : [ 'tasks/yoctodoc.js' ]
+ *  }
+ * });
+ *
+ * // Register Task
+ * grunt.registerTask('doc', [ 'yoctodoc' ]);
+ *
+ * @module yoctore/yocto-doc
  */
 module.exports = function (grunt) {
-  // default config path value
+  // Default config path value
   var configPath    = [ __dirname, 'yoctodoc.json' ].join('/');
-  // is real path
+
+  // Is real path
   var realpath = path.normalize([ __dirname, '..' ].join('/'));
 
-  // default config option to use on build process
+  // Default config option to use on build process
   var defaultOptions = {
     jsdoc : {
       dist : {
@@ -27,12 +53,12 @@ module.exports = function (grunt) {
           template    : [
             realpath,
             'node_modules',
-            'postman-jsdoc-theme',
+            'jsdoc-template'
           ].join('/'),
-          readme      : [ process.cwd(), 'README.md' ].join('/'),
-          extraFiles  : [ ]
+          readme     : [ process.cwd(), 'README.md' ].join('/'),
+          extraFiles : [ ]
         },
-        src     : []
+        src : []
       }
     }
   };
@@ -55,7 +81,7 @@ module.exports = function (grunt) {
     hooker.hook(grunt.task, 'runTaskFn', {
       pre : function (context) {
         if (currentTask !== undefined) {
-          currentTask = true; // true indicates the task has finished successfully.
+          currentTask = true; // True indicates the task has finished successfully.
         }
         currentTask = context.nameArgs;
       }
@@ -63,7 +89,7 @@ module.exports = function (grunt) {
 
     // Hook into the success / fail writer.
     hooker.hook(grunt.log.writeln(), [ 'success', 'fail' ], function (res) {
-      // check done or aborted
+      // Check done or aborted
       var done    = res === 'Done, without errors.' || 'Done.';
       var warning = res === 'Done, but with warnings.';
       var aborted = res === 'Aborted due to warnings.';
@@ -72,9 +98,9 @@ module.exports = function (grunt) {
       // Is finish ??
       if (done || error) {
         if (currentTask !== undefined) {
-          currentTask = error ? false : true;
+          currentTask = !error;
 
-          // define default message
+          // Define default message
           var cMsg = {
             level : error ? 'warn' : 'ok',
             msg   : error ?
@@ -82,99 +108,115 @@ module.exports = function (grunt) {
               'Documentation was generated properly.'
           };
 
-          // only if all is done
-          if (done) {
-            // info message
-            grunt.log.ok('Copying style files on destination path. please wait ...');
-            // copy custom css to dest file
-            grunt.file.copy(
-              [ __dirname, 'css/custom.css' ].join('/'),
-              [ grunt.config.data.jsdoc.dist.options.destination, 'styles/custom.css' ].join('/'));
-            // copy custom css to dest file
-            grunt.file.copy([ realpath, 'node_modules/color-themes-for-google-code-prettify',
-              'dist/themes/tomorrow-night-bright.css'
-            ].join('/'), [
-              grunt.config.data.jsdoc.dist.options.destination, 'styles/tomorrow-night.min.css'
-            ].join('/'));
+          // Files to copy
+          var fileToCopy = [
+            {
+              from : 'javascript/lodash.min.js',
+              to   : 'scripts/lodash.min.js',
+              type : 'js'
+            },
+            {
+              from : 'javascript/search.js',
+              to   : 'scripts/search.js',
+              type : 'js'
+            },
+            {
+              from : 'css/custom.css',
+              to   : 'styles/custom.css',
+              type : 'css'
+            }
+          ];
 
-            // copy css file
-            grunt.file.copy(
-              [ __dirname, 'javascript/lodash.min.js' ].join('/'),
-              [ grunt.config.data.jsdoc.dist.options.destination,
-                'scripts/lodash.min.js' ].join('/'));
-            grunt.file.copy(
-              [ __dirname, 'javascript/jquery.min.js' ].join('/'),
-              [ grunt.config.data.jsdoc.dist.options.destination,
-                'scripts/jquery.min.js' ].join('/'));
-            grunt.file.copy(
-              [ __dirname, 'javascript/search.js' ].join('/'),
-              [ grunt.config.data.jsdoc.dist.options.destination,
-                'scripts/search.js' ].join('/'));
-            // parse all template to set properly the current header name
+          // Only if all is done
+          if (done) {
+            // Info message
+            grunt.log.ok('Copying style files on destination path. please wait ...');
+
+            // Parse all files to copy
+            _.each(fileToCopy, function (file) {
+              // Try to copy
+              grunt.file.copy(
+                [ __dirname, file.from ].join('/'),
+                [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
+            });
+
+            // Parse all template to set properly the current header name
             var templates = glob.sync([
               grunt.config.data.jsdoc.dist.options.destination,
               '*.html'
             ].join('/'));
 
+            // Extra files is defined ? Try to copy content on dest directory
             if (!_.isEmpty(defaultOptions.jsdoc.dist.options.extraFiles)) {
-              // info message
+              // Info message
               grunt.log.ok('Copying extra files on destination path. please wait ...');
-              // copy all
+
+              // Copy all
               _.each(defaultOptions.jsdoc.dist.options.extraFiles, function (extra) {
-                // parse data
+                // Parse data
                 var parse = path.parse(extra);
+
+                // Try to copy extra file
+
                 grunt.file.copy(extra, [
                   grunt.config.data.jsdoc.dist.options.destination, 'extras', parse.base
                 ].join('/'));
               });
             }
 
-            // info message
-            grunt.log.ok('Updating each page with custom value. please wait ...');
+            // Info message
+            grunt.log.ok('Updating documentation please wait ...');
 
-            // current date
+            // Current date
             var date = new Date();
 
-            // get config used
+            // Get config used
             var configUsed = JSON.parse(grunt.file.read(configPath));
-            // parse all files
-            _.each(templates, function (t) {
-              // get content to process replace
-              var content = grunt.file.read(t);
-              // process default replacement
-              content = content.replace(/(<title>)(.*\- )(.*)(<\/title>)/gi, [
-                  '$1$2', grunt.config.data.pkg.name,'$4'
-                ].join(''))
-                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
-                '<link type="text/css" rel="stylesheet" href="styles/custom.css"/>\n$1' ].join(''))
-                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
-                '<link type="text/css" rel="stylesheet" href="styles/tomorrow-night.min.css"/>\n$1'
-                ].join(''))
-                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
-                '<script type="text/javascript" src="scripts/lodash.min.js"></script>\n$1'
-                ].join(''))
-                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
-                '<script type="text/javascript" src="scripts/jquery.min.js"></script>\n$1'
-                ].join(''))
-                .replace(/(<\/head>)/gi, [ _.repeat(' ', 4),
-                '<script type="text/javascript" src="scripts/search.js"></script>\n$1'
-                ].join(''))
-                .replace(/(<footer>)(.*\n.*\n)(<\/footer>)/gi, [ '$1',
-                  configUsed.opts.footer.replace('%date%', date)
-                                        .replace('%appname%', grunt.config.data.pkg.name)
-                                        .replace('%year%', date.getFullYear()), '$3' ].join(''))
-                .replace(/(<nav>\n.*<h2>)(.*)(<\/h2>)/gi, [ '$1$2<span class="version">',
-                    [ 'v', grunt.config.data.pkg.version ].join(''), '</span>$3',
-                    '<input class="search" placeholder="Type your search here ...." />'].join(''))
-                .replace(/(<nav>)(\n.*<h2>)/gi, [ '$1\n',
-                  '  <a href="http://www.yocto.re" target="_blank">',
-                  '<img class="logo" src="./extras/logo-yocto.png" alt="logo-yocto"/></a>$2'
-                ].join(''));
 
-              // rewrite file with correct name
+            // Parse all files and process default replacement
+            _.each(templates, function (t) {
+              // Get content to process replace
+              var content = grunt.file.read(t);
+
+              // Remove tracking template
+              content = content.replace(/<!-- start Mixpanel -->(.*)<!-- end Mixpanel -->/gmis, '');
+              // replace header and footer content
+              content = content.replace('%title%', grunt.config.data.pkg.name);
+              content = content.replace('%version%', grunt.config.data.pkg.version);
+              content = content.replace(/(<footer>)(.*)(<\/footer>)/gmis, [ 
+                  '$1',
+                  configUsed.opts.footer
+                    .replace('%date%', date)
+                    .replace('%appname%', grunt.config.data.pkg.name)
+                    .replace('%year%', date.getFullYear()), '$3'
+              ].join(''));
+              // Replace html title
+              content = content.replace(/(<title>)(.*- )(.*)(<\/title>)/gi, [
+                '$1$2', grunt.config.data.pkg.name,'$4'
+              ].join(''));
+
+              // Parse all files to copy
+              _.each(fileToCopy, function (file) {
+                // Try to copy
+                grunt.file.copy(
+                  [ __dirname, file.from ].join('/'),
+                  [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
+
+                // Build correct header content
+                var headerContent = file.type === 'css' ?
+                  '<link type="text/css" rel="stylesheet" href="%s"/>'.replace('%s', file.to) :
+                  '<script type="text/javascript" src="%s"></script>'.replace('%s', file.to);
+
+                  // Replace content
+
+                content = content.replace(/(<\/head>)/gi, [ _.repeat(' ', 2), headerContent, os.EOL, '$1' ].join(''));
+              });
+
+              // Rewrite file with correct name
               grunt.file.write(t, content);
             });
           }
+
           // Need to log end message with custom param
           grunt.log[cMsg.level](cMsg.msg);
         }
@@ -189,13 +231,12 @@ module.exports = function (grunt) {
 
   // Register default plugin process
   grunt.registerMultiTask('yoctodoc', 'Generate js documention from JsDoc', function () {
-    // retrive options
+    // Retrive options
     var options = this.options();
 
-    // check if jshint option is given
+    // Check if jshint option is given
     if (!_.isUndefined(options.destination) && !_.isNull(options.destination) &&
       _.isString(options.destination) && !_.isEmpty(options.destination)) {
-
       // Log message and merge options
       grunt.log.ok('New destination options given for yoctodoc. Processing update.');
       defaultOptions.jsdoc.dist.options.destination = options.destination;
@@ -206,38 +247,42 @@ module.exports = function (grunt) {
 
     // Filter file and return correct file path
     this.data = this.filesSrc.map(function (filepath) {
-      // exists ?
+      // Exists ?
       if (!grunt.file.exists(filepath)) {
         grunt.log.warn([ 'Source file "', filepath, '" not found.' ].join(''));
 
-        // bash value retutning false
+        // Bash value retutning false
         return false;
       }
-      // return file path
+
+      // Return file path
       return filepath;
     });
 
-    // prevent undefined value
+    // Prevent undefined value
     options.copyExtraFiles = options.copyExtraFiles || [];
-    // push default extra files
+
+    // Push default extra files
     options.copyExtraFiles.push([ __dirname, 'extras/*.png' ].join('/'));
 
-    // parse all extraFiles files
+    // Parse all extraFiles files
     _.each(options.copyExtraFiles || [], function (extra) {
-      // push all items on storage list
-      defaultOptions.jsdoc.dist.options.extraFiles.push(glob.sync(extra, { absolute : true }));
+      // Push all items on storage list
+      defaultOptions.jsdoc.dist.options.extraFiles.push(glob.sync(extra, {
+        absolute : true
+      }));
     });
 
-    // normalize extraFiles storage
+    // Normalize extraFiles storage
     defaultOptions.jsdoc.dist.options.extraFiles = _.uniq(
       _.flatten(defaultOptions.jsdoc.dist.options.extraFiles));
 
     // Has data ?
     if (!_.isEmpty(this.data)) {
-      // notify console
+      // Notify console
       grunt.log.ok([
         this.data.length,
-        [ 'file', (this.data.length > 1 ? 's' : '') ].join(''),
+        [ 'file', this.data.length > 1 ? 's' : '' ].join(''),
         'found. Adding on source list.'
       ].join(' '));
 
@@ -247,7 +292,7 @@ module.exports = function (grunt) {
       // Merge config data to grunt config
       grunt.config.merge('jsdoc', defaultOptions.jsdoc);
 
-      // notif console
+      // Notif console
       grunt.log.ok('Processing yoctodoc:runner ...');
 
       // Run tasks
@@ -257,22 +302,6 @@ module.exports = function (grunt) {
     }
   });
 
-  // save initial path
-  var cwd             = process.cwd();
-  // si lower than last node LTS version (6.9.1)
-  var isLtThanLastLts = semver.lt(process.version, '6.9.1');
-
-  // check is valid ?
-  if (isLtThanLastLts) {
-    // logging message
-    grunt.log.ok([ 'Changing cwd directory to load modules because version of node is',
-      process.version ].join(' '));
-    // change path to yocto-hint modules
-    process.chdir(realpath);
-  }
-
   // Load grunt needed task
   grunt.loadNpmTasks('grunt-jsdoc');
-  // return to the initial path
-  process.chdir(cwd);
 };

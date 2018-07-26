@@ -1,5 +1,28 @@
 // only if document is ready ?
 $(document).ready(function () {
+  // append content on navbar first
+  $('.reference-title').parent().append(
+    '<div class="logo-nav"><a href="http://www.yocto.re" target="_blank"><img class="logo" src="./extras/logo-yocto.png" alt="logo-yocto"></a></div>'
+  );
+
+  // force remove of search container on dom is already exists
+  $('.search-container').remove();
+
+  // appene search on navbar
+  $('.top-nav-wrapper > ul').append(
+    '<li class="search-container"><input class="search" placeholder="Type your search here ...."/></li>'
+  );
+
+  // chack all 
+  $('.blank').each(function() {
+    $(this).click(function() {
+      // open in blank page
+      window.open($(this).attr('href'), '_blank');
+      // default statement
+      return false;      
+    })
+  })
+
   // parse all parent
   $('nav > ul > li').each(function () {
     $(this).addClass('parent');
@@ -12,6 +35,12 @@ $(document).ready(function () {
   // custom search
   $('.search').keyup(function() {
     var value = $(this).val();
+    // if input is empty clean previous process
+    if (value === '') {
+      $('.thide, .parent, .child').each(function () {
+        $(this).show().removeClass('.thide');
+      })
+    }
     $('.child').each(function() {
       // get value
       var childValue = $(this).children().text();

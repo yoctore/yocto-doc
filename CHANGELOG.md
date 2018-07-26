@@ -1,3 +1,8 @@
+## 2.2.0 (2018/07/26)
+
+- Update dependencies package
+- Update template of documentation
+
 ## 2.1.6 (2016/12/05)
 
 - Update CSS font for documentation

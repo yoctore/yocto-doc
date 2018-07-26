@@ -1,23 +1,26 @@
 {
   "tags": {
-    "allowUnknownTags": true
+      "allowUnknownTags"  : true,
+      "dictionaries"      : [ "jsdoc" ]
   },
-  "plugins": [
+  "plugins"   : [
     "plugins/markdown"
   ],
-  "templates": {
-    "cleverLinks": false,
-    "monospaceLinks": false,
-    "default": {
+  "templates" : {
+    "referenceTitle"  : "%title%<br/>Version <span style='color:#0095dd'>v%version%</span>",
+    "disableSort"     : false,
+    "cleverLinks"     : false,
+    "monospaceLinks"  : false,
+    "default"         : {
       "outputSourceFiles": true
     },
-    "linenums": true,
-    "collapseSymbols": false
+    "linenums"        : true,
+    "collapseSymbols" : false
   },
-  "opts": {
-    "encoding": "utf8",
-    "private": true,
-    "recurse": true,
-    "footer": "Documentation for application <b>%appname%<b> was generated at %date% with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a> module - Copyright Yocto © %year%"
+  "opts"    : {
+    "encoding"  : "utf8",
+    "private"   : true,
+    "recurse"   : true,
+    "footer"    : "Documentation for application <b>%appname%<b>.<br/>Generated at %date% with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © %year%"
   }
 }
