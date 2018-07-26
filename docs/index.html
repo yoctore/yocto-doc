@@ -65,7 +65,7 @@
 
   <nav>
     <h3 class="reference-title">
-      yocto-doc<br/>Version <span style='color:#0095dd'>v2.1.6</span>
+      yocto-doc<br/>Version <span style='color:#0095dd'>v2.2.0</span>
     </h3>
 
     <h3>Modules</h3><ul><li id="yoctore_yocto-doc-nav"><a href="module-yoctore_yocto-doc.html">yoctore/yocto-doc</a></li></ul>
@@ -92,43 +92,7 @@
 <a href="https://codeclimate.com/github/yoctore/yocto-doc/coverage"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/coverage.svg" alt="Test Coverage"></a>
 <a href="https://codeclimate.com/github/yoctore/yocto-doc"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/issue_count.svg" alt="Issue Count"></a>
 <a href="https://travis-ci.org/yoctore/yocto-doc"><img src="https://travis-ci.org/yoctore/yocto-doc.svg?branch=master" alt="Build Status"></a></p>
-<h1>Overview</h1><p>This module generate documentation from source.</p>
-<p>Documentation was builded with jsDoc and with customized postman-jsdoc-theme.</p>
-<h2>How to use ?</h2><p>First install with <code>npm</code> command.</p>
-<pre class="prettyprint source lang-shell"><code># If you install from npm registry
-npm install yocto-doc --save-dev</code></pre><p>After that configure your project's Gruntfile with a new section named <code>yoctodoc</code> (see below).</p>
-<pre class="prettyprint source lang-js"><code>grunt.initConfig({
-  yoctodoc : {
-      options : {
-        // change your path destination
-        destination : 'Your_new_absolute_destination_path'
-      },
-      // Set all your file here
-      all : [ 'file.js', 'file2.js', 'file3.js', 'OR a path all js files are added' ]
-    }
-});
-
-// load task
-grunt.loadNpmTasks('yocto-doc');
-// register task
-grunt.registerTask('doc', 'yoctodoc');</code></pre><p>And run grunt command</p>
-<pre class="prettyprint source lang-shell"><code>grunt doc</code></pre><h2>How to add external files on documentation directory ?</h2><p>To use this feature you can use copyExtraFiles property on your grunt file.
-You can use full path or wilcard to find wanted files.</p>
-<pre class="prettyprint source lang-js"><code>grunt.initConfig({
-  yoctodoc : {
-      options : {
-        // change your path destination
-        destination : 'Your_new_absolute_destination_path'
-        copyExtraFiles : [ 'mayfile.myextension', './directory/myfile.extension', './directory/*.js' ]
-      },
-      // Set all your file here
-      all : [ 'file.js', 'file2.js', 'file3.js', 'OR a path all js files are added' ]
-    }
-});</code></pre><h2>How looks like the custom theme ?</h2><p>See below kind of examples.</p>
-<p><img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/docs/extras/Capture-1.png" alt="Screen One">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/docs/extras/Capture-2.png" alt="Screen Two">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/docs/extras/Capture-3.png" alt="Screen Three">
-<img src="https://raw.githubusercontent.com/yoctore/yocto-doc/master/docs/extras/Capture-4.png" alt="Screen Four"></p>
+<h1>Overview</h1><p>To know more about this module see project documentation <a href="https://yoctore.github.io/yocto-doc">here</a></p>
     </article>
   </section>
 
@@ -140,7 +104,7 @@ You can use full path or wilcard to find wanted files.</p>
 
   <br class="clear">
 
-  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Thu Jul 26 2018 20:38:24 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2018</footer>
+  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Thu Jul 26 2018 21:03:04 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2018</footer>
 
   <script src="scripts/linenumber.js"></script>
   <script src="scripts/pagelocation.js"></script>

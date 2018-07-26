@@ -14,8 +14,7 @@ module.exports = function (grunt) {
     // Define yocto doc config
     yoctodoc : {
       options : {
-        destination    : './docs',
-        copyExtraFiles : [ 'assets/*.png' ]
+        destination : './docs'
       },
       all : [ 'tasks/yoctodoc.js' ]
     }

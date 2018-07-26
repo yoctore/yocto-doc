@@ -11,7 +11,7 @@ engines:
 ratings:
   paths:
   - "**.js"
-exclude_paths: [ 'dist', 'documentation', 'example', 'test' ]
+exclude_paths: [ 'dist', 'docs', 'example', 'test' ]
 engines: 
   eslint:
     enabled: true
