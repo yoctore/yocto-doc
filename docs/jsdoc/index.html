@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      Home - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+  
+
+  
+  <script type="text/javascript" src="scripts/lodash.min.js"></script>
+  <script type="text/javascript" src="scripts/search.js"></script>
+  <link type="text/css" rel="stylesheet" href="styles/custom.css"/>
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li  class="active" >
+        <a href="index.html">
+          
+          
+            <svg fill="#0095dd" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+        </a>
+      </li>
+
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      yocto-doc<br/>Version <span style='color:#0095dd'>v2.2.0</span>
+    </h3>
+
+    <h3>Modules</h3><ul><li id="yoctore_yocto-doc-nav"><a href="module-yoctore_yocto-doc.html">yoctore/yocto-doc</a></li></ul>
+  </nav>
+
+  <div id="main">
+    
+
+    
+      
+
+
+
+    
+
+      
+
+
+  <section class="readme">
+    <article>
+      <p><a href="https://nodei.co/npm/yocto-doc/"><img src="https://nodei.co/npm/yocto-doc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<p><img src="https://david-dm.org/yoctore/yocto-doc.svg" alt="alt text" title="Dependencies Status">
+<a href="https://codeclimate.com/github/yoctore/yocto-doc"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://codeclimate.com/github/yoctore/yocto-doc/coverage"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/coverage.svg" alt="Test Coverage"></a>
+<a href="https://codeclimate.com/github/yoctore/yocto-doc"><img src="https://codeclimate.com/github/yoctore/yocto-doc/badges/issue_count.svg" alt="Issue Count"></a>
+<a href="https://travis-ci.org/yoctore/yocto-doc"><img src="https://travis-ci.org/yoctore/yocto-doc.svg?branch=master" alt="Build Status"></a></p>
+<h1>Overview</h1><p>This grunt module was build to generate : </p>
+<ul>
+<li>Classic javascript documentation from <a href="jsdoc">http://usejsdoc.org/</a> comment.</li>
+<li>Rest API documentation based on <a href="apidoc">http://apidocjs.com/</a> comment</li>
+</ul>
+<h2>How to install</h2><pre class="prettyprint source lang-bash"><code>npm install --save-dev yocto-doc</code></pre><h3>How to configure</h3><p>In you Gruntfile.js add this :</p>
+<pre class="prettyprint source lang-javascript"><code>'use strict';
+
+module.exports = function (grunt) {
+  // Project configuration.
+  grunt.initConfig({
+    // Default package
+    pkg : grunt.file.readJSON('package.json'),
+
+    // Define yocto doc config
+    yoctodoc : {
+      options : {
+        api : true // To generator API documentation
+      },
+      all : [ 'PATH_OF_YOUR_JS_FILE' ]
+    }
+  });
+
+  // Load npm task
+  grunt.loadNpmTasks('yocto-doc');
+  grunt.registerTask('doc', [ 'yoctodoc' ]);
+};</code></pre><h2>How to use</h2><pre class="prettyprint source lang-bash"><code>grunt doc</code></pre><h2>Output</h2><ul>
+<li>Classic Javascript documentation : by default this documentation was exported into <strong>docs/jsdoc</strong> directory.</li>
+<li>API Rest documentation : by default this documentation was exported into <strong>docs/api-doc</strong> directory.</li>
+</ul>
+<h2>API generator usage</h2><p><strong>@apiSchema</strong></p>
+<p>By default <a href="https://www.npmjs.com/package/yoctodoc">yocto-doc</a> generate doc from <a href="http://apidocjs.com/">api-doc</a> comment tag, but those tags must not be defined in your classic javascript comment.</p>
+<p>We do this just to keep a clean code comment, because <a href="http://apidocjs.com/">api-doc</a> comment can be huge and long to write.</p>
+<p>At this point you must use the <code>@apiSchema</code> tag to defined the path of your <a href="http://apidocjs.com/">api-doc</a> definition.</p>
+<p>For example : </p>
+<pre class="prettyprint source lang-javascript"><code>/**
+ * A huge and long classic comment 
+ *
+ * @param {String} a a description 
+ * @param {String} b b description 
+ * @return {String} return description
+ * 
+ * @apiSchema path_to_your_api_doc_schema_definition.js
+ */</code></pre><p>During the process <a href="https://www.npmjs.com/package/yoctodoc">yocto-doc</a> will try to load all of your schema and build the doc from this definition.</p>
+<p><strong>@apiHeader and @apiFooter</strong></p>
+<p>By default <a href="http://apidocjs.com/">api-doc</a> provide a <code>header</code> and <code>footer</code> configuration, but this configuration must be set on a <code>apidoc.json</code> file at the root of your projet.</p>
+<p>With <a href="https://www.npmjs.com/package/yoctodoc">yocto-doc</a> your can set it on your classic javascript comment just after <strong>@apiSchema</strong> tag.</p>
+<p>For example : </p>
+<pre class="prettyprint source lang-javascript"><code>/**
+ * A comment
+ *
+ * @class
+ * @public
+ *
+ * @apiSchema path_to_your_api_doc_schema_definition.js
+ * @apiHeader {YOUR_HEADER_TEXT_TITLE}(path_to_your_header_content.md)
+ * @apiFooter {YOUR_FOOTER_TEXT_TITLE}(path_to_your_footer_content.md)
+ */</code></pre>
+    </article>
+  </section>
+
+
+    
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Wed Aug 08 2018 18:02:01 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - 2018</footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+  
+</body>
+</html>
