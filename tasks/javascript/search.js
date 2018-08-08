@@ -23,6 +23,12 @@ $(document).ready(function () {
     })
   })
 
+  if ($('.api-enabled').length > 0) {
+    $('.reference-title').after(
+      '<div class="api-doc-button-container"><a class="api-doc-button-access" href="/api"><span>Go to API Documentation</span></a></div>'
+    );
+  }
+
   // parse all parent
   $('nav > ul > li').each(function () {
     $(this).addClass('parent');

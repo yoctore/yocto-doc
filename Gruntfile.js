@@ -14,9 +14,9 @@ module.exports = function (grunt) {
     // Define yocto doc config
     yoctodoc : {
       options : {
-        destination : './docs'
+        api : true
       },
-      all : [ 'tasks/yoctodoc.js' ]
+      all : [ 'tasks/*.js' ]
     }
   });
 

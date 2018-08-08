@@ -31,6 +31,7 @@
   ],
   "keywords": [
     "grunt",
+    "api-doc",
     "jsdoc",
     "documentation",
     "yocto",
@@ -39,7 +40,9 @@
   ],
   "dependencies": {
     "chalk": "^2.4.1",
+    "comment-regex": "^1.0.1",
     "glob": "^7.1.1",
+    "grunt-apidoc": "^0.11.0",
     "grunt-jsdoc": "^2.1.0",
     "hooker": "^0.2.3",
     "jsdoc-template": "github:braintree/jsdoc-template",
@@ -47,6 +50,7 @@
   },
   "devDependencies": {
     "grunt": "^1.0.3",
+    "pretty-checkbox": "^3.0.3",
     "yocto-hint": "^2.1.0"
   }
 }

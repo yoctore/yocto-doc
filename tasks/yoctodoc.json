@@ -21,6 +21,6 @@
     "encoding"  : "utf8",
     "private"   : true,
     "recurse"   : true,
-    "footer"    : "Documentation for application <b>%appname%<b>.<br/>Generated at %date% with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © %year%"
+    "footer"    : "Documentation for application <b>%appname%<b>.<br/>Generated at %date% with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - %year%"
   }
 }
