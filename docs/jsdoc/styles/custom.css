@@ -39,6 +39,25 @@ nav {
   width: calc(100% - 400px);
 }
 
+.main-default-home {
+  height: 100%;
+  width: 100% !important;
+}
+
+.main-default-home > footer {
+  margin: 0 !important;
+}
+
+.reference-title-default-home {
+  line-height: 25px;
+  font-size: 15px;
+  margin-top: 20% !important;
+}
+
+.readme-default-home {
+  max-width: 100% !important;
+}
+
 .code {
   color : rgba(255, 0, 0, 0.8) !important;
 }

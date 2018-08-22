@@ -2,8 +2,18 @@
 $(document).ready(function () {
   // append content on navbar first
   $('.reference-title').parent().append(
-    '<div class="logo-nav"><a href="http://www.yocto.re" target="_blank"><img class="logo" src="./extras/logo-yocto.png" alt="logo-yocto"></a></div>'
+    '<div class="logo-nav logo-nav-doc"><a href="http://www.yocto.re" target="_blank"><img class="logo" src="extras/logo-yocto.png" alt="logo-yocto"></a></div>'
   );
+
+  $('.reference-title-default-home').each(function() {
+    $(this).parent().find('.logo-nav-doc').each(function() {
+      $(this).remove();
+    });
+    $(this).parent().append(
+      '<div class="logo-nav"><a href="http://www.yocto.re" target="_blank"><img class="logo" src="jsdoc/extras/logo-yocto.png" alt="logo-yocto"></a></div>'
+    )
+  });
+
 
   // force remove of search container on dom is already exists
   $('.search-container').remove();

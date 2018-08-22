@@ -73,7 +73,12 @@ module.exports = function (grunt) {
             'jsdoc-template'
           ].join('/'),
           readme     : [ process.cwd(), 'README-JSDOC.md' ].join('/'),
-          extraFiles : [ ]
+          extraFiles : [],
+          homePage   : {
+            destination : [ process.cwd(), 'docs' ].join('/'),
+            withApi     : [ process.cwd(), 'tasks/extras/index-default-api.html' ].join('/'),
+            withoutApi  : [ process.cwd(), 'tasks/extras/index-default.html' ].join('/')
+          }
         },
         src : []
       }
@@ -190,6 +195,16 @@ module.exports = function (grunt) {
               });
             }
 
+            var defaultHome = [
+              defaultOptions.jsdoc.dist.options.homePage.destination, 'index.html'
+            ].join('/');
+            grunt.log.ok('Copying default home page on destination path. please wait ...');
+            grunt.file.copy(
+              _.includes(globalTasks, 'apidoc') ? 
+                defaultOptions.jsdoc.dist.options.homePage.withApi :
+                defaultOptions.jsdoc.dist.options.homePage.withoutApi, 
+            defaultHome);
+
             // Info message
             grunt.log.ok('Updating documentation please wait ...');
 
@@ -198,6 +213,9 @@ module.exports = function (grunt) {
 
             // Get config used
             var configUsed = JSON.parse(grunt.file.read(configPath));
+
+            // add default home to replace process
+            templates.push(defaultHome);
 
             // Parse all files and process default replacement
             _.each(templates, function (t) {
@@ -221,21 +239,23 @@ module.exports = function (grunt) {
                 '$1$2', grunt.config.data.pkg.name,'$4'
               ].join(''));
 
-              // Parse all files to copy
-              _.each(fileToCopy, function (file) {
-                // Try to copy
-                grunt.file.copy(
-                  [ __dirname, file.from ].join('/'),
-                  [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
+              if (t !== defaultHome) {
+                // Parse all files to copy
+                _.each(fileToCopy, function (file) {
+                  // Try to copy
+                  grunt.file.copy(
+                    [ __dirname, file.from ].join('/'),
+                    [ grunt.config.data.jsdoc.dist.options.destination, file.to ].join('/'));
 
-                // Build correct header content
-                var headerContent = file.type === 'css' ?
-                  '<link type="text/css" rel="stylesheet" href="%s"/>'.replace('%s', file.to) :
-                  '<script type="text/javascript" src="%s"></script>'.replace('%s', file.to);
+                  // Build correct header content
+                  var headerContent = file.type === 'css' ?
+                    '<link type="text/css" rel="stylesheet" href="%s"/>'.replace('%s', file.to) :
+                    '<script type="text/javascript" src="%s"></script>'.replace('%s', file.to);
 
-                // Replace content
-                content = content.replace(/(<\/head>)/gi, [ _.repeat(' ', 2), headerContent, os.EOL, '$1' ].join(''));
-              });
+                  // Replace content
+                  content = content.replace(/(<\/head>)/gi, [ _.repeat(' ', 2), headerContent, os.EOL, '$1' ].join(''));
+                });
+              }
 
               // apidoc is set ?
               if (_.includes(globalTasks, 'apidoc')) {
