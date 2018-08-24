@@ -76,8 +76,8 @@ module.exports = function (grunt) {
           extraFiles : [],
           homePage   : {
             destination : [ process.cwd(), 'docs' ].join('/'),
-            withApi     : [ process.cwd(), 'tasks/extras/index-default-api.html' ].join('/'),
-            withoutApi  : [ process.cwd(), 'tasks/extras/index-default.html' ].join('/')
+            withApi     : [ __dirname, 'extras/index-default-api.html' ].join('/'),
+            withoutApi  : [ __dirname, 'extras/index-default.html' ].join('/')
           }
         },
         src : []
@@ -91,7 +91,6 @@ module.exports = function (grunt) {
       }
     }
   };
-
 
   // if readmeJSDoc not exist create it
   if (!grunt.file.exists(defaultOptions.jsdoc.dist.options.readme)) {

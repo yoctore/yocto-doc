@@ -67,7 +67,7 @@
 
   <nav>
     <h3 class="reference-title">
-      yocto-doc<br/>Version <span style='color:#0095dd'>v2.3.0</span>
+      yocto-doc<br/>Version <span style='color:#0095dd'>v2.3.1</span>
     </h3>
 
     <h3>Modules</h3><ul><li id="yoctore_yocto-doc-nav"><a href="module-yoctore_yocto-doc.html">yoctore/yocto-doc</a></li></ul>
@@ -163,8 +163,8 @@ module.exports = function (grunt) {
           extraFiles : [],
           homePage   : {
             destination : [ process.cwd(), 'docs' ].join('/'),
-            withApi     : [ process.cwd(), 'tasks/extras/index-default-api.html' ].join('/'),
-            withoutApi  : [ process.cwd(), 'tasks/extras/index-default.html' ].join('/')
+            withApi     : [ __dirname, 'extras/index-default-api.html' ].join('/'),
+            withoutApi  : [ __dirname, 'extras/index-default.html' ].join('/')
           }
         },
         src : []
@@ -178,7 +178,6 @@ module.exports = function (grunt) {
       }
     }
   };
-
 
   // if readmeJSDoc not exist create it
   if (!grunt.file.exists(defaultOptions.jsdoc.dist.options.readme)) {
@@ -538,7 +537,7 @@ module.exports = function (grunt) {
 
   <br class="clear">
 
-  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Wed Aug 22 2018 15:54:30 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - 2018</footer>
+  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Fri Aug 24 2018 10:53:25 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - 2018</footer>
 
   <script src="scripts/linenumber.js"></script>
   <script src="scripts/pagelocation.js"></script>

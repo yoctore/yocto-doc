@@ -1,7 +1,7 @@
 {
   "name": "yocto-doc",
   "description": "Generate documention for javascript source from JsDoc",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": {
     "name": "ROBERT Mathieu",
     "email": "mathieu@yocto.re",
@@ -23,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=8.11.3"
+    "node": ">=8.11.4"
   },
   "scripts": {},
   "files": [
@@ -45,11 +45,11 @@
     "grunt-apidoc": "^0.11.0",
     "grunt-jsdoc": "^2.1.0",
     "hooker": "^0.2.3",
-    "jsdoc-template": "github:braintree/jsdoc-template",
     "lodash": "^4.17.10"
   },
   "devDependencies": {
     "grunt": "^1.0.3",
+    "jsdoc-template": "github:braintree/jsdoc-template",
     "pretty-checkbox": "^3.0.3",
     "yocto-hint": "^2.1.0"
   }
