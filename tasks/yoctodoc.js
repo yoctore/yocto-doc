@@ -68,7 +68,7 @@ module.exports = function (grunt) {
           destination : [ process.cwd(), 'docs/jsdoc' ].join('/'),
           configure   : configPath,
           template    : [
-            realpath,
+            process.cwd(),
             'node_modules',
             'jsdoc-template'
           ].join('/'),
