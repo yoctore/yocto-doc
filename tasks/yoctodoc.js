@@ -66,14 +66,16 @@ module.exports = function (grunt) {
   // test if crrent template exits first
   try {
     // default template path exists ?
-    if (fs.statSync(templatePath)) {
+    if (fs.statSync([ templatePath, 'publish.js' ].join('/'))) {
       // nothing to do
     }
   } catch(e) {
     // change the path
-    templatePath = path.resolve([ process.cwd(), 'node_modules',
-      appPackage.name, 'node_modules', 'jsdoc-template' ].join('/'));
+    templatePath = path.resolve([ 
+      'node_modules', 'yocto-doc', 'node_modules', 'jsdoc-template'
+    ].join('/'));
   }
+
   // Default config option to use on build process
   var defaultOptions = {
     jsdoc : {

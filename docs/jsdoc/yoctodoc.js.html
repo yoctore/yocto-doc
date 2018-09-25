@@ -67,7 +67,7 @@
 
   <nav>
     <h3 class="reference-title">
-      yocto-doc<br/>Version <span style='color:#0095dd'>v2.3.4</span>
+      yocto-doc<br/>Version <span style='color:#0095dd'>v2.3.6</span>
     </h3>
 
     <h3>Modules</h3><ul><li id="yoctore_yocto-doc-nav"><a href="module-yoctore_yocto-doc.html">yoctore/yocto-doc</a></li></ul>
@@ -93,6 +93,7 @@ var glob      = require('glob');
 var path      = require('path');
 var os        = require('os');
 var comment   = require('comment-regex');
+var fs        = require('fs');
 
 /**
  * This module is a grunt task to generate automatic documentation for a javascript project
@@ -146,7 +147,22 @@ module.exports = function (grunt) {
 
   // Is real path
   var realpath = path.normalize([ __dirname, '..' ].join('/'));
-  
+  // default template path
+  var templatePath = path.resolve([ ".", 'node_modules', 'jsdoc-template' ].join('/'));
+
+  // test if crrent template exits first
+  try {
+    // default template path exists ?
+    if (fs.statSync([ templatePath, 'publish.js' ].join('/'))) {
+      // nothing to do
+    }
+  } catch(e) {
+    // change the path
+    templatePath = path.resolve([ 
+      'node_modules', 'yocto-doc', 'node_modules', 'jsdoc-template'
+    ].join('/'));
+  }
+
   // Default config option to use on build process
   var defaultOptions = {
     jsdoc : {
@@ -154,11 +170,7 @@ module.exports = function (grunt) {
         options : {
           destination : [ process.cwd(), 'docs/jsdoc' ].join('/'),
           configure   : configPath,
-          template    : path.resolve([
-            ".",
-            'node_modules',
-            'jsdoc-template'
-          ].join('/')),
+          template    : templatePath,
           readme     : [ process.cwd(), 'README-JSDOC.md' ].join('/'),
           extraFiles : [],
           homePage   : {
@@ -537,7 +549,7 @@ module.exports = function (grunt) {
 
   <br class="clear">
 
-  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Tue Sep 25 2018 16:25:41 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - 2018</footer>
+  <footer>Documentation for application <b>yocto-doc<b>.<br/>Generated at Tue Sep 25 2018 17:00:47 GMT+0400 (+04) with <a href='https://www.npmjs.com/package/yoctodoc'>yocto-doc</a><br/>Copyright Yocto © 2014 - 2018</footer>
 
   <script src="scripts/linenumber.js"></script>
   <script src="scripts/pagelocation.js"></script>
