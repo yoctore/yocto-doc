@@ -1,7 +1,7 @@
 {
   "name": "yocto-doc",
   "description": "Generate documention for javascript source from JsDoc",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "author": {
     "name": "ROBERT Mathieu",
     "email": "mathieu@yocto.re",
