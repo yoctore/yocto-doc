@@ -67,11 +67,11 @@ module.exports = function (grunt) {
         options : {
           destination : [ process.cwd(), 'docs/jsdoc' ].join('/'),
           configure   : configPath,
-          template    : [
-            process.cwd(),
+          template    : path.resolve([
+            ".",
             'node_modules',
             'jsdoc-template'
-          ].join('/'),
+          ].join('/')),
           readme     : [ process.cwd(), 'README-JSDOC.md' ].join('/'),
           extraFiles : [],
           homePage   : {
