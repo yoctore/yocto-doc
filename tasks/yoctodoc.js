@@ -6,6 +6,7 @@ var glob      = require('glob');
 var path      = require('path');
 var os        = require('os');
 var comment   = require('comment-regex');
+var fs        = require('fs');
 
 /**
  * This module is a grunt task to generate automatic documentation for a javascript project
@@ -59,7 +60,20 @@ module.exports = function (grunt) {
 
   // Is real path
   var realpath = path.normalize([ __dirname, '..' ].join('/'));
-  
+  // default template path
+  var templatePath = path.resolve([ ".", 'node_modules', 'jsdoc-template' ].join('/'));
+
+  // test if crrent template exits first
+  try {
+    // default template path exists ?
+    if (fs.statSync(templatePath)) {
+      // nothing to do
+    }
+  } catch(e) {
+    // change the path
+    templatePath = path.resolve([ process.cwd(), 'node_modules',
+      appPackage.name, 'node_modules', 'jsdoc-template' ].join('/'));
+  }
   // Default config option to use on build process
   var defaultOptions = {
     jsdoc : {
@@ -67,11 +81,7 @@ module.exports = function (grunt) {
         options : {
           destination : [ process.cwd(), 'docs/jsdoc' ].join('/'),
           configure   : configPath,
-          template    : path.resolve([
-            ".",
-            'node_modules',
-            'jsdoc-template'
-          ].join('/')),
+          template    : templatePath,
           readme     : [ process.cwd(), 'README-JSDOC.md' ].join('/'),
           extraFiles : [],
           homePage   : {
